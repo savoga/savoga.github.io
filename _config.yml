@@ -3,8 +3,7 @@ author: savoga
 description: > # this means to ignore newlines until "baseurl:"
   Website done by a data science student
 # social links
-twitter_username: your-twitter-handle # DO NOT include the @ character, or else the build will fail!
-github_username:  your-github-handle # DO NOT include the @ character, or else the build will fail!
+github_username:  github.com/savoga # DO NOT include the @ character, or else the build will fail!
 
 show_excerpts: true # set to false to remove excerpts on the homepage
 
