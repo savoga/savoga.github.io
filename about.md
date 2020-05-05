@@ -3,6 +3,6 @@ layout: default
 title: About
 ---
 
-# My about page
+# Savoga
 
-I'm savoga, king of the world.
+Data Science student

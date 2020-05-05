@@ -1,0 +1,14 @@
+collections:
+  machinelearning:
+    output: true
+
+defaults:
+- scope:
+    path: ""
+    type: "machinelearning"
+  values:
+    layout: "math"
+- scope:
+    path: ""
+  values:
+    layout: "default"

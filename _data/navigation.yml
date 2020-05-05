@@ -2,5 +2,7 @@
   link: /
 - name: About
   link: /about.html
-- name: Maths
-  link: /maths.html
+- name: ML
+  link: /machinelearning.html
+- name: Stats
+  link: /stats.html

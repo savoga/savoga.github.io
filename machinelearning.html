@@ -1,0 +1,37 @@
+---
+title: Machine Learning
+---
+<h1>Machine Learning</h1>
+
+<p>Theory</p>
+<u1>
+    {% for topic in site.machinelearning %}
+        {% if topic.category == "theory" %}
+        <li>
+            <a href="{{ topic.url }}">{{ topic.name }}</a>
+        </li>
+        {% endif %}
+    {% endfor %}
+</u1>
+
+<p>Supervised</p>
+<u2>
+    {% for topic in site.machinelearning %}
+        {% if topic.category == "supervised" %}
+        <li>
+            <a href="{{ topic.url }}">{{ topic.name }}</a>
+        </li>
+        {% endif %}
+    {% endfor %}
+</u2>
+
+<p>Unsupervised</p>
+<u3>
+    {% for topic in site.machinelearning %}
+        {% if topic.category == "unsupervised" %}
+        <li>
+            <a href="{{ topic.url }}">{{ topic.name }}</a>
+        </li>
+        {% endif %}
+    {% endfor %}
+</u3>
