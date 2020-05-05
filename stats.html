@@ -1,48 +1,18 @@
 ---
 title: Probabilities and Statistics
 ---
-<h1>Machine Learning</h1>
+<h1>Probabilities and Statistics</h1>
 
-<p>Probabilistic tools</p>
-<u1>
+{% for category in site.data.category-stats %}
+
+<p>{{ category.name }}</p>
+<u>
     {% for topic in site.stats %}
-        {% if topic.category == "tools" %}
+        {% if topic.category == category.name %}
         <li>
             <a href="{{ topic.url }}">{{ topic.name }}</a>
         </li>
         {% endif %}
     {% endfor %}
-</u1>
-
-<p>Inferential statistics</p>
-<u2>
-    {% for topic in site.stats %}
-        {% if topic.category == "inferential" %}
-        <li>
-            <a href="{{ topic.url }}">{{ topic.name }}</a>
-        </li>
-        {% endif %}
-    {% endfor %}
-</u2>
-
-<p>Exploratory statistics</p>
-<u3>
-    {% for topic in site.stats %}
-        {% if topic.category == "exploratory" %}
-        <li>
-            <a href="{{ topic.url }}">{{ topic.name }}</a>
-        </li>
-        {% endif %}
-    {% endfor %}
-</u3>
-
-<p>Predictive models</p>
-<u3>
-    {% for topic in site.stats %}
-        {% if topic.category == "models" %}
-        <li>
-            <a href="{{ topic.url }}">{{ topic.name }}</a>
-        </li>
-        {% endif %}
-    {% endfor %}
-</u3>
+</u>
+{% endfor %}

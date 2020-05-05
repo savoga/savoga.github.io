@@ -1,6 +1,6 @@
 ---
 name: Bayes Classifier
-category: theory
+category: Theory
 ---
 
 $g$ is the <i>classifier</i>.

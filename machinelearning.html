@@ -3,35 +3,16 @@ title: Machine Learning
 ---
 <h1>Machine Learning</h1>
 
-<p>Theory</p>
-<u1>
-    {% for topic in site.machinelearning %}
-        {% if topic.category == "theory" %}
-        <li>
-            <a href="{{ topic.url }}">{{ topic.name }}</a>
-        </li>
-        {% endif %}
-    {% endfor %}
-</u1>
+{% for category in site.data.category-ml %}
 
-<p>Supervised</p>
-<u2>
+<p>{{ category.name }}</p>
+<u>
     {% for topic in site.machinelearning %}
-        {% if topic.category == "supervised" %}
+        {% if topic.category == category.name %}
         <li>
             <a href="{{ topic.url }}">{{ topic.name }}</a>
         </li>
         {% endif %}
     {% endfor %}
-</u2>
-
-<p>Unsupervised</p>
-<u3>
-    {% for topic in site.machinelearning %}
-        {% if topic.category == "unsupervised" %}
-        <li>
-            <a href="{{ topic.url }}">{{ topic.name }}</a>
-        </li>
-        {% endif %}
-    {% endfor %}
-</u3>
+</u>
+{% endfor %}

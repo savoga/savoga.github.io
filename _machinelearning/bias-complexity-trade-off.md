@@ -1,6 +1,6 @@
 ---
 name: Bias-Complexity trade-off
-category: theory
+category: Theory
 ---
 
 $ERM$ = Empiric Risk Minimization algorithm
