@@ -1,0 +1,31 @@
+I"Ã<p>$\textbf{Expectation}$</p>
+
+<p>Generic definition:</p>
+
+<p>$X$ random variable defined on $(\Omega, \mathcal{F} ,\mathbb{P})$:</p>
+
+<p>$\mathbb{E}[X] = \int_{\Omega} X(\omega) d\mathbb{P}(\omega)$</p>
+
+<p><br /></p>
+
+<p>Using measure theory results, we find the specific cases for discrete and continuous variables.</p>
+
+<p>For discrete variables :</p>
+
+<p>$\mathbb{E}[X] = \Sigma_i x_i \mathbb{P}(X=x_i)~(= \mathbb{E}_{\mathbb{P}}[X])$</p>
+
+<p>For continuous variables:</p>
+
+<p>$\mathbb{E}[X] = \int x f(x) dx~(= \mathbb{E}_{\mathbb{P}}[X])$</p>
+
+<p>Conditional expectation (discrete case):</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$\mathbb{E}[Y</td>
+      <td>X=x]$</td>
+    </tr>
+  </tbody>
+</table>
+:ET

@@ -1,0 +1,9 @@
+I"ª<p>$\textbf{Bayes Classifier}$</p>
+
+<p><br /></p>
+
+<p>$g$ is the <i>classifier</i>.</p>
+
+<p>\(g: \mathcal{X} \to \mathcal{Y}\)
+\(~~~~~~~~~~\mathbb{R}^d \to \{0,1\}\)</p>
+:ET

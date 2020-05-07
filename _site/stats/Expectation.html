@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Em Gmm</title>
+    <title>Expectation</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
   <body>
@@ -43,11 +43,33 @@ autoNumber: "AMS"
 });
 </script>
 
-<p>$\textbf{Expectation-Maximization in the case of Gaussian Mixture Model}</p>
+<p>$\textbf{Expectation}$</p>
 
 <p><br /></p>
 
-<p>GMM problem aims at estimating parameters of a sample distribution.</p>
+<p>Generic definition:</p>
+
+<p>$X$ random variable defined on $(\Omega, \mathcal{F} ,\mathbb{P})$:</p>
+
+<p>$\mathbb{E}[X] = \int_{\Omega} X(\omega) d\mathbb{P}(\omega)$</p>
+
+<p><br /></p>
+
+<p>Using measure theory results, we find the specific cases for discrete and continuous variables.</p>
+
+<p>For discrete variables :</p>
+
+<p>$\mathbb{E}[X] = \Sigma_i x_i \mathbb{P}(X=x_i)~(= \mathbb{E}_{\mathbb{P}}[X])$</p>
+
+<p>For continuous variables:</p>
+
+<p>$\mathbb{E}[X] = \int x f(x) dx~(= \mathbb{E}_{\mathbb{P}}[X])$</p>
+
+<p><br /></p>
+
+<p>Conditional expectation (discrete case):</p>
+
+<p>$\mathbb{E}[Y | X=x] = \Sigma_y y \mathbb{P}(Y | X=x)$</p>
 
   </body>
 </html>

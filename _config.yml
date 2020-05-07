@@ -1,6 +1,8 @@
 collections:
   machinelearning:
     output: true
+  stats:
+    output: true
 
 defaults:
 - scope:
