@@ -10,5 +10,10 @@ defaults:
     layout: "math"
 - scope:
     path: ""
+    type: "stats"
+  values:
+    layout: "math"
+- scope:
+    path: ""
   values:
     layout: "default"
