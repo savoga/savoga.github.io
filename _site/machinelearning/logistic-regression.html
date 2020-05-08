@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Logistic Regression</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body>
+    <nav>
+    
+    <a href=/ >
+        Home
+    </a>
+    
+    <a href=/about.html >
+        About
+    </a>
+    
+    <a href=/machinelearning.html >
+        ML
+    </a>
+    
+    <a href=/stats.html >
+        Stats
+    </a>
+    
+    <a href=/projects.html >
+        Projects
+    </a>
+    
+    <a href=/extra.html >
+        Extra
+    </a>
+    
+</nav>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+inlineMath: [['$','$'], ['\\(','\\)']],
+processEscapes: true},
+jax: ["input/TeX","input/MathML","input/AsciiMath","output/CommonHTML"],
+extensions: ["tex2jax.js","mml2jax.js","asciimath2jax.js","MathMenu.js","MathZoom.js","AssistiveMML.js", "[Contrib]/a11y/accessibility-menu.js"],
+TeX: {
+extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
+equationNumbers: {
+autoNumber: "AMS"
+}
+}
+});
+</script>
+
+<p><strong>Logistic regression</strong></p>
+
+<p>Logistic regression is used for binary classification.</p>
+
+<p>It is quite similar to a simple linear regression in the sense that the
+objective is to find optimal weights $\omega$ to predict a variable.
+However, in the logistic regression we use a sigmoïd function.<br />
+Rem: "logistic" because the logistic law has a sigmoïd function as a
+repartition function.<br />
+[Rationale behind the use of the sigmoïd function]{.underline}:</p>
+
+<p>We look for the <em>à posteriori</em> probability
+$\mathbb{P}(y=1 | x) = \pi (x) = \hat{y}$.</p>
+
+<p>The predicted variable $\hat{y}$ is thus a probability.<br />
+The sigmoïd function: $\sigma: z \to \frac{1}{1+e^{-z}}$ is well adapted
+because of two reasons:</p>
+
+<p>1) We want an output variable that is included in $[0,1]$<br />
+2) $\frac{\pi(z)}{1-\pi(z)}$ represents the relationship between a
+distribution and its complementary (good in binary case), and it is just
+a transformation of $\sigma(z)=\frac{1}{1+e^{-z}}=\frac{e^z}{1-e^z}$<br />
+Thus, we have:<br />
+$\hat{y} = \mathbb{P}(y=1 | x) = \sigma(\omega ^Tx + b) = \frac{1}{1-e^{-(\omega ^Tx + b)}}$</p>
+
+<p>[Estimation]{.underline}<br />
+Estimation is done using maximum likelihood. Maximum likelihood is
+finding the parameter that maximizes the probability to have a specific
+event $(x_i, y_i)$ but in our case, it is a <em>conditional</em> maximum
+likelihood since we want to maximize the <em>à posteriori</em> probability that
+depends on $x$.<br />
+$L(\omega, b) = \prod_{i=1}^n \pi(x_i)^{y_i}(1-\pi(x_i))^{1-y_i}$<br />
+This equation has no analytic solution. We use a numeric method to find
+the optimal parameters (see optimizaton algorithms).</p>
+
+<p>See <em>Neural Network</em> section for more details on optimization.</p>
+
+<p>Note: logistic regression is really a linear model since the objective
+is to find $\omega$ that is the slope of the line $\omega ^Tx + b$.</p>
+
+  </body>
+</html>

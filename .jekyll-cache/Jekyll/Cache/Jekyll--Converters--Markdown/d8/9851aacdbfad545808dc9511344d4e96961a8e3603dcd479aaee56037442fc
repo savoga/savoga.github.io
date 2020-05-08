@@ -1,0 +1,14 @@
+I"$<p>Mahalanobis distance</p>
+
+<p>Mahalanobis distance is a good alternative to Euclidean distance. For
+any given point $x$ in a set $X$, the squared Mahalanobis distance is:</p>
+
+\[D^2=(x-\mu_X)^T\Sigma^{-1}(x-\mu_X)\]
+
+<p>Advantage : it takes into account the data standard deviation and
+correlation. The more the data is dispersed, the lower the distance is.
+Indeed, using the inverse matrix is like if we divided the distance from
+the mean $(x-\mu_X)$ by the standard deviation.</p>
+
+<p><em>Note</em>: Euclidean distance is when $\Sigma=Id$.</p>
+:ET

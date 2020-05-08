@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Neural Network</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body>
+    <nav>
+    
+    <a href=/ >
+        Home
+    </a>
+    
+    <a href=/about.html >
+        About
+    </a>
+    
+    <a href=/machinelearning.html >
+        ML
+    </a>
+    
+    <a href=/stats.html >
+        Stats
+    </a>
+    
+    <a href=/projects.html >
+        Projects
+    </a>
+    
+    <a href=/extra.html >
+        Extra
+    </a>
+    
+</nav>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+inlineMath: [['$','$'], ['\\(','\\)']],
+processEscapes: true},
+jax: ["input/TeX","input/MathML","input/AsciiMath","output/CommonHTML"],
+extensions: ["tex2jax.js","mml2jax.js","asciimath2jax.js","MathMenu.js","MathZoom.js","AssistiveMML.js", "[Contrib]/a11y/accessibility-menu.js"],
+TeX: {
+extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
+equationNumbers: {
+autoNumber: "AMS"
+}
+}
+});
+</script>
+
+<p><strong>Neural network</strong></p>
+
+<p>[Logistic regression with a neural network mindset]{.underline}</p>
+
+<p>Based on the example from coursera (<em>deeplearning.ai</em>)</p>
+
+<p>Let us take the example of an image that we want to classify in a
+<strong>binary</strong> way: man/woman</p>
+
+<p>The picture is vectorized as a vector of pixels :
+$\begin{pmatrix}x_1\…\x_p\end{pmatrix}$</p>
+
+<p>We use a regression to predict if it’s a man/woman:</p>
+
+<p>$y=\omega^Tx + b$</p>
+
+<p>Note: $x$ are all the pixels of <strong>one</strong> image.</p>
+
+<p>We want a probability in output (if it’s $\ge 0.5$ then we say it’s a
+man).</p>
+
+<p>We thus want the output to be
+$\widehat{y}=\sigma(\omega^Tx + b)=\mathbb{P}(y|x) \in [0,1]$</p>
+
+<p>(see regression part to get more details on the sigmoid)</p>
+
+<p>Now since it’s a binary classification, we want the $y$ (real value) to
+be $0$ or $1$.</p>
+
+<p>Thus, the loss function is:</p>
+
+\[\mathcal{L}(y, \widehat{y})=-y\log(\widehat{y})+(1-y)\log(1-\widehat{y})\]
+
+<p>Proof: TODO from binary law (Bernoulli) to cross-entropy</p>
+
+<p>The cost function is the empiric loss on all examples:</p>
+
+\[J(\omega, b)=\frac{1}{m}\Sigma_{i=1}^m\mathcal{L}(\widehat{y}^{(i)}, y^i)\]
+
+<p>[Forward propagation]{.underline}</p>
+
+\[x_1,x_2, \omega_1,\omega_p,b \to z=\omega_1x_1 + \omega_2x_2 + b \to \widehat{y}=a=\sigma(z) \to \mathcal{L}(a,y)\]
+
+<p>- First arrow: regression</p>
+
+<p>- Second arrow: probability</p>
+
+<p>- Third arrow: error</p>
+
+<p>[Backward propagation]{.underline}</p>
+
+<p>The idea is: with the error computed on the last step, we go backward in
+order to correct the parameters $\omega$ and $b$.</p>
+
+\[x_1,x_2, \omega_1,\omega_p,b \leftarrow z=\omega_1x_1 + \omega_2x_2 + b \leftarrow \widehat{y}=a=\sigma(z) \leftarrow \mathcal{L}(a,y)\]
+
+<p>Example: we want to find $\omega_1$ that minimizes the cost function:</p>
+
+<p>$\frac{d\mathcal{L}}{d\omega_1}=”d\omega_1”=\frac{d\mathcal{L}}{da}\frac{da}{dz}\frac{dz}{d\omega_1}=…=(a-y)x_1=dzx_1$</p>
+
+<p>Steps:</p>
+
+<p>We compute all the derivatives, then we apply the gradient descent</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for i in range(num_iterations):
+        
+     # Cost and gradient calculation
+     grads, cost = propagate(w, b, X_train, Y_train) # propagation on ALL the training sample
+        
+     # Retrieve derivatives from grads
+     dw = grads["dw"]
+     db = grads["db"]
+        
+     # update parameters
+     w = w - learning_rate * dw
+     b = b - learning_rate * db
+        
+     # Record the costs
+     costs.append(cost)
+
+def propagate(w, b, X, Y):
+    
+    m = X.shape[1]
+    
+    # FORWARD PROPAGATION (FROM X TO COST)
+    A = sigmoid(np.dot(w.T,X)+b)
+    cost = (- 1 / m) * np.sum(Y * np.log(A) + (1 - Y) * (np.log(1 - A))
+    
+    # BACKWARD PROPAGATION (TO FIND GRAD)
+    dw = (1/m)*np.dot(X,(A-Y).T)
+    db = (1/m)*np.sum(A-Y)
+</code></pre></div></div>
+
+  </body>
+</html>

@@ -1,0 +1,60 @@
+I"<p><strong>Online control</strong></p>
+
+<p>Recall that value function is
+$\forall s, V_\pi(s) = \mathbb{E}[G | s_0 = s]$</p>
+
+<p>Unknown model &lt;=&gt; "unknown strategy" &lt;=&gt; we don’t know the rewards
+in advance (we need to learn <em>online</em>).</p>
+
+<p>=&gt; we cannot compute the expectation $\mathbb{E}$</p>
+
+<p>=&gt; instead of the value function, we will estimate the <strong>value-action
+function</strong> thanks to the Bellman equation:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$\forall s, a,~~~~~Q_\pi(s,a) = \mathbb{E}_\pi[r_0 + \gamma Q(s_1, a_1)</td>
+      <td>s_0 = s, a_0 = a]$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>=&gt; for an initial state and a fixed action, we can compute the $Q$
+function</p>
+
+<p>=&gt; the value-action function can be seen as the expected (=&gt; use of
+transition matrix (probabilities)) gain we get at a state when doing a
+specific action</p>
+
+<p><em>Note</em>: the policy $\pi$ takes account only from next state $s_1$</p>
+
+<p>We want to <em>control</em> the policy and find the optimal one:
+$\pi^<em>(a) = a^</em> \in argmax_a Q_*(s,a)$</p>
+
+<p>The optimal Bellman equation becomes:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$\forall s, a,~~~~~Q_\pi(s,a) = \mathbb{E}<em>\pi[r_0 + \gamma max</em>{a’} Q(s_1, a’)</td>
+      <td>s_0 = s, a_0 = a]$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>How to choose initial state $a_0$?</p>
+
+<p>–&gt; Pure exploitation: we find the best action knowing the current
+system $\pi(s) \leftarrow argmax_a Q(s,a)$</p>
+
+<p>=&gt; problem: $Q$ is estimated, thus we have a chance to miss good
+actions</p>
+
+<p>–&gt; Pure exploration: $\pi(s) \leftarrow random$</p>
+
+<p>=&gt; problem: we can waste time on bad actions and thus have bad
+estimation quality</p>
+
+<p>Solution: trade-off exploitation/exploitation (SARSA, Q-learning, ...).</p>
+:ET

@@ -1,0 +1,23 @@
+I"_<h1 id="bias-complexity-trade-off-secbias-complexity-trade-off-unnumbered">Bias-Complexity trade-off {#sec:bias-complexity-trade-off .unnumbered}</h1>
+
+<p>$ERM$ = Empiric Risk Minimization algorithm</p>
+
+<p>$\mathcal{H}$ = hypothesis class = all the classifiers that are
+considered</p>
+
+<p>We can decompose the error of an $ERM_\mathcal{H}$:</p>
+
+\[L_{\mathcal{D}}(h_s) = \epsilon_{app} + \epsilon_{est}\]
+
+<p>- <em>Approximation error</em>:
+$\epsilon_{app} = min_{h \in \mathcal{H}} L_{\mathcal{D}}(h)$. This is
+the error done by the best predictor among those considered.</p>
+
+<p>- <em>Estimation error</em>:
+$\epsilon_{est} = L_{\mathcal{D}}(h) - \epsilon_{app}$. This is the
+error difference from a used predictor and the best one.</p>
+
+<p>$\epsilon_{app}$ low =&gt; $\epsilon_{est}$ high =&gt; overfitting</p>
+
+<p>$\epsilon_{est}$ low =&gt; underfitting</p>
+:ET

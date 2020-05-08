@@ -1,3 +1,4 @@
 - name: Theory
-- name: Supervised
-- name: Unsupervised
+- name: Supervised learning
+- name: Unsupervised learning
+- name: Reinforcement learning

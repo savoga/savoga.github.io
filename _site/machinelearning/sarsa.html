@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sarsa</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body>
+    <nav>
+    
+    <a href=/ >
+        Home
+    </a>
+    
+    <a href=/about.html >
+        About
+    </a>
+    
+    <a href=/machinelearning.html >
+        ML
+    </a>
+    
+    <a href=/stats.html >
+        Stats
+    </a>
+    
+    <a href=/projects.html >
+        Projects
+    </a>
+    
+    <a href=/extra.html >
+        Extra
+    </a>
+    
+</nav>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+inlineMath: [['$','$'], ['\\(','\\)']],
+processEscapes: true},
+jax: ["input/TeX","input/MathML","input/AsciiMath","output/CommonHTML"],
+extensions: ["tex2jax.js","mml2jax.js","asciimath2jax.js","MathMenu.js","MathZoom.js","AssistiveMML.js", "[Contrib]/a11y/accessibility-menu.js"],
+TeX: {
+extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
+equationNumbers: {
+autoNumber: "AMS"
+}
+}
+});
+</script>
+
+<p>[SARSA]{.underline}</p>
+
+<p>This algorithm is based on $\epsilon$-greedy algorithm.</p>
+
+\[\pi(s) \leftarrow
+    \begin{cases}
+     a^* \in argmax_a Q(s,a) $ with probability $ 1-\epsilon \\
+    random $ with probability $ \epsilon
+    \end{cases}\]
+
+<p>=&gt; with a small probability ($\epsilon$ is usually lower than $5\%$),
+we do random actions. Otherwise we take the best action of the known
+ones.</p>
+
+<p><strong>Estimation</strong> is done through <em>TD-learning</em> (temporal differences - see
+Online Estimation):</p>
+
+<p>$\forall t, Q(\textcolor{blue}{s}<em>t, \textcolor{blue}{a}_t) \xleftarrow{\alpha} \textcolor{blue}{r}_t + \gamma Q(\textcolor{blue}{s}</em>{t+1}, \textcolor{blue}{a}_{t+1})$</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># action is identified with new state (after move) except teleportation (action = same state)
+
+def sarsa(Q, model = model, alpha = 0.1, eps = 0.1, n_iter = 100):
+    states = model.states
+    terminals = model.terminals
+    rewards = model.rewards
+    gamma = model.gamma
+    # random state (not terminal)
+    state = np.random.choice(np.setdiff1d(np.arange(len(states)), terminals))
+    # random action
+    action = np.random.choice(Q[state].indices)
+    new_state = action
+    for t in range(n_iter):
+        state_prev = state
+        action_prev = action
+        state = new_state
+        if state in terminals: # if the new action gives terminal state
+                # we start again from a new random state
+                state = np.random.choice(np.setdiff1d(np.arange(len(model.states)),
+                                     terminals))
+                action = np.random.choice(Q[state].indices)
+                Q[state_prev, action_prev] = 
+        (1 - alpha) *  Q[state_prev, action_prev] + alpha * rewards[action_prev]
+          # we removed the second term since state_prev was the last step
+        else:
+          # we choose the best action that has the highest expected value-action
+                best_action = Q[state].indices[np.argmax(Q[state].data)]
+                if np.random.random() &lt; eps: 
+        # with probability of epsilon, we choose a random action
+                    action = np.random.choice(Q[state].indices)
+                else:
+                    action = best_action
+                Q[state_prev, action_prev] = 
+            (1 - alpha) *  Q[state_prev, action_prev] 
+            + alpha * (rewards[action_prev] + gamma * Q[state, action])
+        new_state = action
+    return Q
+</code></pre></div></div>
+
+  </body>
+</html>

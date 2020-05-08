@@ -1,0 +1,140 @@
+I"t<p><strong>Correlation</strong></p>
+
+<p>[Pearson coefficient]{.underline}:</p>
+
+<p>$\rho_{X,Y} = \frac{cov(X,Y)}{\sigma_X \sigma_Y}$</p>
+
+<p><em>np.cov(a,b)</em> gives a <strong>matrix</strong> with covariances and <strong>unbiased</strong>
+variances (on the diagonal).</p>
+
+<p>Several computation equivalences are shown below:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a = pd.Series([5, 2, 6])
+b = pd.Series([18, 2, 5])
+
+print(a.corr(b) # biased standard deviation estimators !!
+      == np.corrcoef(a,b)[0,1] 
+      == (np.cov(a,b)[0,1] / np.sqrt(np.cov(a,b)[0,0]*np.cov(a,b)[1,1]))
+      == np.cov(a,b)[0,1] / (np.std(a,ddof=1)*np.std(b,ddof=1)) 
+      != np.cov(a,b)[0,1] / (np.std(a)*np.std(b)))
+
+# prints True
+</code></pre></div></div>
+
+<p><em>Note</em>: when we compute those statistics numerically, we use
+<strong>empirical</strong> values.</p>
+
+<p>Thus, $\mathbb{V}[X] = \mathbb{E}[X-\mathbb{E}[X]]$ is computed as
+$var_n(x)=\frac{1}{n}\Sigma(x_i - \overline{x})^2$</p>
+
+<p>[Autocorrelation (1)]{.underline}:</p>
+
+<p>$R_{k} = \frac{\mathbb{E}[(X_i-\mu_X)(X_{i+k}-\mu_X)]}{\sigma_X^2}$</p>
+
+<p>$X_i$ is the dataset without the last $k$ values</p>
+
+<p>$X_{i+k}$ is the dataset without the first $k$ values</p>
+
+<p>$\mu_X$ is the mean on <strong>the whole</strong> dataset $X$</p>
+
+<p>$\sigma_X^2$ is the variance <strong>the whole</strong> dataset $X$</p>
+
+<p>[Autocorrelation (2)]{.underline}:</p>
+
+<p>$R_{k} = \frac{\mathbb{E}[(X_i-\mu_{X_i})(X_{i+k}-\mu_{X_{i+k}})]}{\sigma_{X_i}\sigma_{X_{i+k}}}$</p>
+
+<p>$X_i$ is the dataset without the last $k$ values</p>
+
+<p>$X_{i+k}$ is the dataset without the first $k$ values</p>
+
+<p>$\mu_{X_i}$ is the mean on dataset $X_i$</p>
+
+<p>$\sigma_{X_i}$ is the standard deviation on dataset $X_i$</p>
+
+<p><em>statsmodels.tsa.stattools.acf</em> uses formula (1).</p>
+
+<p><em>np.autocorr</em> uses formula (2).</p>
+
+<p>Below is the summary of equivalences:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import statsmodels.tsa.stattools as sm
+
+s = pd.Series([5, 2, 6, 18, 2, 5])
+
+a = pd.Series([5, 2, 6])
+b = pd.Series([18, 2, 5])
+
+# Formula (1)
+print(s.autocorr(3) # unbiased standard deviation estimators !!
+      == a.corr(b)
+      ==  np.cov(a,b)[0,1]/(np.std(a,ddof=1)*np.std(b,ddof=1)))
+
+# prints True
+
+# Formula (2)
+def acf_by_hand(x, lag):
+    y1 = np.array(x[:(len(x)-lag)])
+    y2 = np.array(x[lag:])
+    sum_product = np.sum((y1-np.mean(x))*(y2-np.mean(x)))
+    return sum_product / (len(x) * np.var(x))
+
+print(round(acf_by_hand(s,3),6)
+        == round(sm.acf(s)[3],6)) # biased covariance and standard deviation estimators !!
+
+# prints True
+</code></pre></div></div>
+
+<p>Below a graphical comparision of both formulas:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import statsmodels.tsa.stattools as sm
+
+s = pd.Series([5, 2, 6, 18, 2, 5])
+a = pd.Series([5, 2, 6])
+b = pd.Series([18, 2, 5])
+
+corr_statsmodel =  sm.acf(s)[1:4]
+corr_pandas = [s.autocorr(i) for i in range(1,4)]
+
+test_df = pd.DataFrame([corr_statsmodel, corr_pandas]).T
+test_df.columns = ['Pandas Autocorr', 'Statsmodels Autocorr']
+test_df.index += 1
+test_df.plot(kind='bar')
+</code></pre></div></div>
+
+<p><img src="/assets/img/corr_comparison.jpg" alt="image" height="20%" width="50%" /></p>
+
+<p>[Partial autocorrelation]{.underline}</p>
+
+<p>Based on article <a href="https://towardsdatascience.com/understanding-partial-auto-correlation-fa39271146ac">understanding-partial-auto-correlation
+(towardsdatascience)</a></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$PR_k = \frac{cov(X_t</td>
+      <td>X_{t-1} … X_{t-k+1},X_{t-k}</td>
+      <td>X_{t-1} … X_{t-k+1})}{\sigma_{X_t</td>
+      <td>X_{t-1} … X_{t-k+1}} \sigma_{X_{t-k}</td>
+      <td>X_{t-1} … X_{t-k+1}}}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>$X_t | X_{t-1} … X_{t-k+1}$ is the residual of regression
+$X_t = \beta_0 + \beta_1 X_{t-1} + … + \beta_k X_{t-k+1}$</p>
+
+<p>$X_{t-k} | X_{t-1} … X_{t-k+1}$ is the residual of regression
+$X_{t-k} = \beta_0 + \beta_1 X_{t-1} + … + \beta_k X_{t-k+1}$</p>
+
+<p>Thus, one can write:</p>
+
+<p>$PR_k = \rho_{\epsilon_t,\epsilon_{t-k}}$</p>
+
+<p>We use partial autocorrelation in order to define the order $p$ in which
+we can compute an AR(p) model.</p>
+
+<p><img src="PACF.png" alt="image" /></p>
+
+<p>Based on this graph, we can use an AR(2) or even AR(3) ($k=3$ is just
+outside the 95% confidence interval.</p>
+:ET

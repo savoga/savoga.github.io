@@ -1,0 +1,9 @@
+I"‰<p><strong>Central limit theorem</strong></p>
+
+<p>Let $(X_n)_{n \ge 1}$ be a real and independent sequence with same law
+such that $\mu = \mathbb{E}[X_1]$ and<br />
+$\mathbb{V}[X_1]=\sigma^2$ are defined ($\mathbb{V}[X_1] \leq +\infty$).
+Noting $\bar{X}_n=\frac{1}{n}(X_1 + â€¦ + X_n)$, we have:</p>
+
+<p>$\sqrt{n}\frac{(\bar{X}<em>n-\mu)}{\sigma} \sim</em>{n \to \infty} \mathcal{N}(0,1)$</p>
+:ET

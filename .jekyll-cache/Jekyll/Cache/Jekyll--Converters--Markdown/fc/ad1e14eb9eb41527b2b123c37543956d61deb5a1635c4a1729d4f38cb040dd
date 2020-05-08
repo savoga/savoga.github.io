@@ -1,0 +1,122 @@
+I"2<p><strong>Time series</strong></p>
+
+<p>[Differential equations]{.underline}</p>
+
+<p>A differential equation is an equation with the following
+characteristics:</p>
+
+<p>- variables = functions</p>
+
+<p>- it expresses the relationship of functions (variables) with their
+derivatives</p>
+
+<p>Case of <em>linear and constant coefficient</em> differential equations:</p>
+
+<p>$a_ny^{(n)} + a_{n-1}y^{(n-1)} + … + a_1y’ + a_0y = 0$</p>
+
+<p>$(n)$: n-th derivative</p>
+
+<p>In order to solve such equations, we use <em>characteristic equations</em>:</p>
+
+<p>$a_ny^{(n)} + a_{n-1}y^{(n-1)} + … + a_1y’ + a_0y = 0$ (E)</p>
+
+<p>Let $y(x) = e^{rx}$</p>
+
+<p>(E) =&gt;
+$a_nr^n e^{rx} + a_{n-1}r^{(n-1)} e^{rx} + … + a_1 r e^{rx} + a_0e^{rx} = 0$</p>
+
+<p>Since $e^{rx} \neq 0$</p>
+
+<p>(E) =&gt; $a_nr^n + a_{n-1}r^{(n-1)} + … + a_1 r + a_0 = 0$</p>
+
+<p>We thus end up with a polynomial function.</p>
+
+<p>In order to find the general solution of (E), we can find the solution
+of the characteristic equation and deduce the general solution (using
+exponential).</p>
+
+<p>[Autoregressive processes]{.underline}</p>
+
+<p>Autoregressive processes are a specifc case of <em>differential equations</em>.</p>
+
+<p>$y_{t+k} = \beta_1 y_{t+k-1} + \beta_2 y_{t+k-2} + … + \beta_k y_{t}$</p>
+
+<p>Characteristic equation:</p>
+
+<p>$r^k - \beta_1 r^{k-1} - … - \beta_{k-1} r - \beta_k = 0$</p>
+
+<p>[Stationary processes]{.underline}</p>
+
+<p>A stationary process has the same moment (expectation, variance, etc.)
+in every single point.</p>
+
+<p>In practice, we check the stationarity with only the first two moments
+(expectation and variance).</p>
+
+<p>Intuition behind the importance of stationary processes in regressions:</p>
+
+<p>When performing regressions, it is important to make sure the error term
+is stationary. If non stationary, there’s probably a trend that is not
+caught by the explanatory variables used. This can lead to <em>spurious
+regressions</em>.</p>
+
+<p>To make sure a process is stationary, we have to check the existence of
+a <em>unit root</em>.</p>
+
+<p>Why existence of unit root leads to non-stationary process?</p>
+
+<p>Toy example:</p>
+
+<p>Let us consider a 1st order autoregressive process
+$y_t = \beta_0 + \beta_1 y_{t-1} + \epsilon_t$</p>
+
+<p>Let $\beta_0 = 0$. The characteristic equation is:</p>
+
+<p>$r - \beta_1 = 0$</p>
+
+<p>The solution is $r = \beta_1$</p>
+
+<p>The problem has thus a unit root when $\beta_1 = 1$</p>
+
+<p>Since $y_t = \beta_0 + \beta_1 y_{t-1} + \epsilon_t$ we can write:</p>
+
+<p>$y_1 = y_0 + \epsilon_0$</p>
+
+<p>$y_2 = y_1 + \epsilon_1 = y_0 + \epsilon_0 + \epsilon_1$</p>
+
+<p>$y_3 = y_0 + \epsilon_0 + \epsilon_1 + \epsilon_2$</p>
+
+<p>Thus, $y_t = y_0 + \Sigma_{j=0}^t \epsilon_j$</p>
+
+<p>The variance is $\mathbb{V}[y_t] = t \sigma^2$ (we assume a constant
+variance for $\epsilon$)</p>
+
+<p>Consequently, the variance is increasing with time so the process is
+<strong>not stationary</strong>.</p>
+
+<p>To detect stationarity, we can perform a unit root test such as
+<em>Augmented Dicky Fuller test</em>.</p>
+
+<p>Non stationarity can be corrected in several ways :</p>
+
+<p>- time regression : performing a regression on time and working with
+the error term</p>
+
+<p>Example : if $y_t$ in non stationary</p>
+
+<p>$y_t = \beta_0 + \beta_1 t +\epsilon_t$ –&gt; $\epsilon_t$ will not
+depend on time anymore</p>
+
+<p>- finite differences : removing previous term to each observation
+$y_t = y_t - y_{t-1}$ –&gt; this will have the effect to remove the trend</p>
+
+<p>- moving average XxX</p>
+
+<p>Example : using (double) centered moving average 5x5</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cpi_roll = cpi.rolling(window=5).mean() # cell at index 4 is the mean of the 5 previous ones (inclusive)
+cpi_mm = cpi - cpi_roll
+cpi_roll_2 = cpi_mm.rolling(window=5).mean()
+cpi_mm_2 = cpi_mm - cpi_roll_2
+</code></pre></div></div>
+:ET

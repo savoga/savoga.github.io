@@ -1,0 +1,16 @@
+I";<p><strong>Online estimation</strong></p>
+
+<p>The expected value function is approached using empiric estimator (sum).</p>
+
+<p>Two ways to do it:</p>
+
+<p>- Monte-Carlo update: if we can memorize all the paths, we update the
+sum at each step $S \leftarrow x_t$. At the end we compute the mean
+$X \leftarrow \frac{S}{t}$</p>
+
+<p>- TD-learning: we update the value function using temporal differences
+$\forall s, V(s_t) \xleftarrow{\alpha} r_t + \gamma V(s_{t+1})$</p>
+
+<p>Where $X \xleftarrow{\alpha} x_t &lt;=&gt; X = X + \alpha (x_t - X)$ ($\alpha$
+is usually $1/t$)</p>
+:ET

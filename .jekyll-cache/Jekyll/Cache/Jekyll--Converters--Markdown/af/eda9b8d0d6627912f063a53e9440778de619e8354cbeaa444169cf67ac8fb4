@@ -1,0 +1,35 @@
+I"c<p><strong>Likelihood method</strong></p>
+
+<p>This method consists on finding the parameter that maximizes the
+likelihood of an event. It is usually done when we know the type of law
+of a random variable (uniform, gaussian etc.) and we are looking for the
+parameter that maximizes the likelihood ($\approx$ probability) that an
+event occurs.</p>
+
+<p>$L(\theta; x_1,…,x_n) = \prod_{i=1}^{n}f(x_i;\theta)$ which is the
+product of densities across all samples.</p>
+
+<p>In discrete form:
+$L(\theta; x_1,…,x_n) = \prod_{i=1}^{n}\mathbb{P}(X = x_i; \theta)$</p>
+
+<p><em>Note (wording clarification)</em>:
+$L(\theta | X) = \mathbb{P} (X | \theta)$</p>
+
+<p>$\mathbb{P} (X | \theta)$: the probability of observing an event with
+fixed model parameters.</p>
+
+<p>$L(\theta | X)$: the likelihood of the parameters taking certain values
+given that we observe an event.</p>
+
+<p>Intuitively, we want to find the $\theta$ that maximizes a certain
+event, that is, obtaining some data $X$ (which is why we have
+$X | \theta$).</p>
+
+<p>We often use the log in order to get rid of power coefficients appearing
+with the product.<br />
+<em>likelihood equation</em>: $\frac{d}{d\theta}ln(L(x_1,…,x_n;\theta))=0$</p>
+
+<p><em>Note</em>: in machine learning, we use likelihood maximization in
+unsupervised learning when we want to estimate parameters of a
+distribution sample (generative models).</p>
+:ET

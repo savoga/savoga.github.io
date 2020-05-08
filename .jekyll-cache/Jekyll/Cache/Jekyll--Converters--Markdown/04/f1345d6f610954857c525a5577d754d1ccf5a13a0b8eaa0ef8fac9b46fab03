@@ -1,0 +1,251 @@
+I"�<p><strong>SVM</strong></p>
+
+<p>[Margin]{.underline}</p>
+
+<p>This idea of SVM is to separate data as best as possible using a margin.</p>
+
+<p><img src="/assets/img/SVM.png" alt="image" height="20%" width="20%" /></p>
+
+<p>Three planes:</p>
+
+<p>- $H_1: \omega^Tx+b=1$</p>
+
+<p>- $H: \omega^Tx+b=0$</p>
+
+<p>- $H_{-1}: \omega^Tx+b=-1$</p>
+
+<p>Computing $H_1 - H_{-1}$ we get:</p>
+
+<p>$(x_1-x_{-1})\omega^T=2$</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>=&gt; $</td>
+      <td> </td>
+      <td>x_1-x_{-1}</td>
+      <td> </td>
+      <td>=\frac{2}{</td>
+      <td> </td>
+      <td>\omega</td>
+      <td> </td>
+      <td>}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The SVM problem starts with a <strong>margin maximization</strong>. [We want to
+maximize the distance between $x_1$ and $x_{-1}$ (<strong>to be double
+checked</strong>)]{style=”color: orange”} and it is equivalent to minimizing
+$||\omega||$. Thus the optimization problem is written as such:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$min_{\omega,b}~\frac{1}{2}</td>
+      <td> </td>
+      <td>\omega</td>
+      <td> </td>
+      <td>^2$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>$s.t.~y_i(\omega^Tx_i+b) \geq 1$ $i=1,…,n$</p>
+
+<p>[Primal formulation]{.underline}</p>
+
+<p>The above problem reflects the case where all data are perfectly
+separable, this is not true in practice. We thus add an error term
+$\xi_i$ for each observation. This leads to the <strong>primal formulation</strong>
+of the problem:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$min_{\omega,b, \xi}~\frac{1}{2}</td>
+      <td> </td>
+      <td>\omega</td>
+      <td> </td>
+      <td>^2+C\Sigma_{i=1}^{n}\xi_i$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>$s.t.~y_i(\omega^Tx_i+b) \geq 1 - \xi_i$ $i=1,…,n$</p>
+
+<p>$\xi_i \geq 0$ $i=1,…,n$</p>
+
+<p><em>Note</em>: the problem can be rewritten with the hinge loss function</p>
+
+<p>$y_i(\omega^Tx_i+b) \geq 1 - \xi_i =&gt; \xi_i \geq 1 - y_i(\omega^Tx_i+b)$</p>
+
+<p>$~~~~~~~~~~~~~~~~~~~~~~~~~~~~ =&gt; \xi_i \geq 1 - y_i(\omega^Tx_i+b) \geq 0$
+since $\xi_i \geq 0$</p>
+
+<p>$~~~~~~~~~~~~~~~~~~~~~~~~~~~~ =&gt; \xi_i = max(0, 1 - y_i(\omega^Tx_i+b))$</p>
+
+<p>$~~~~~~~~~~~~~~~~~~~~~~~~~~~~ =&gt; \xi_i = (0, 1 - y_i(\omega^Tx_i+b))_+$</p>
+
+<p>$=&gt; \xi_i = hinge(f(x))$ where $hinge$ is the <em>Hinge loss</em> function</p>
+
+<p>$hinge(f(x)) = (1 - yf(x))_+$</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$min_{\omega,b}~\frac{1}{2}</td>
+      <td> </td>
+      <td>\omega</td>
+      <td> </td>
+      <td>^2+C\Sigma_{i=1}^{n} (0, 1 - y_i(\omega^Tx_i+b))_+$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>[Lagrange]{.underline}</p>
+
+<p>We can write this problem using Lagrange formulation, that is,
+integrating the constraints into the main formula:</p>
+
+<p>$\mathcal{L}(\omega,b,\xi, \alpha, \mu) = \frac{1}{2}\omega^T\omega+C\Sigma \xi_i + \Sigma \alpha_i (1-\xi_i - y_i(\omega^Tx_i+b)) - \Sigma \mu_i \xi_i$</p>
+
+<p>$\alpha_i, \mu_i \geq 0$</p>
+
+<p>First order conditions:</p>
+
+<p>$\frac{\partial\mathcal{L}}{\partial\omega} = 0 =&gt; \omega - \Sigma \alpha_i y_i x_i = 0 =&gt; \omega = \Sigma \alpha_i y_i x_i$</p>
+
+<p>$\frac{\partial\mathcal{L}}{\partial b} = 0 =&gt; -\Sigma \alpha_i y_i = 0$</p>
+
+<p>$\frac{\partial\mathcal{L}}{\partial \xi_i} = 0 =&gt; C - \alpha_i  - \mu_i = 0 =&gt; \alpha_i = C - \mu_i$</p>
+
+<p>Since $\alpha_i, \mu_i \geq 0$ we have $C \geq \alpha_i \geq 0$</p>
+
+<p>[Dual formulation]{.underline}</p>
+
+<p>We can rewrite the problem using the first order conditions above:</p>
+
+<p>$\mathcal{L}(\omega,b,\xi, \alpha, \mu) = \frac{1}{2}(\Sigma \alpha_i y_i x_i)^T(\Sigma \alpha_i y_i x_i)+C\Sigma \xi_i + \Sigma \alpha_i - \Sigma \alpha_i \xi_i - \Sigma \alpha_i y_i (\Sigma \alpha_i y_i x_i)^T x_i - \Sigma \alpha_i y_i b - \Sigma \mu_i \xi_i$</p>
+
+<p>$~~~~~~~~~~~~~~~~~~ = -\frac{1}{2}(\Sigma \alpha_i y_i x_i)^T(\Sigma \alpha_i y_i x_i) + \Sigma(C - \alpha_i - \mu_i)\xi_i + \Sigma \alpha_i - \Sigma \alpha_i y_i b$</p>
+
+<p>$~~~~~~~~~~~~~~~~~~ = -\frac{1}{2}\Sigma_{i,j} \alpha_i \alpha_j y_i y_j x_i^T x_j + \Sigma \alpha_i$</p>
+
+<p>The problem is convex with lineary inequality constraints, we can apply
+the saddle point theorem.</p>
+
+<p><em>Note</em>: a point is saddle if it’s a maximum w.r.t. one axis and a
+minimium w.r.t. another axis</p>
+
+<p>The saddle theorem allows us to solve the problem
+$min_\omega max_\alpha$ as $max_\alpha min_\omega$</p>
+
+<p>This leads to the problem in its <strong>dual formulation</strong>:</p>
+
+<p>$max_\alpha~~-\frac{1}{2}\Sigma_{i,j} \alpha_i \alpha_j y_i y_j x_i^T x_j + \Sigma \alpha_i$</p>
+
+<p>$s.t.<del>0 \leq \alpha_i \leq C</del>i=1,…,n$</p>
+
+<p>$\Sigma \alpha_i y_i = 0~~i=1,…,n$</p>
+
+<p>Using the above expression of $\omega$ (optimal condition), the
+classification function is:</p>
+
+<p>$f(x)=sign(\Sigma \alpha_i y_i x_i^T x + b)$</p>
+
+<p>[Kernel]{.underline}</p>
+
+<p>Kernels are used when separation is non linear.</p>
+
+<p>Recall the primal formulation:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$min_{\omega,b, \xi}~\frac{1}{2}</td>
+      <td> </td>
+      <td>\omega</td>
+      <td> </td>
+      <td>^2+C\Sigma_{i=1}^{n}\xi_i$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>$s.t.~y_i(\omega^Tx_i+b) \geq 1 - \xi_i$ $i=1,…,n$</p>
+
+<p>$\xi_i \geq 0$ $i=1,…,n$</p>
+
+<p>When separation is non linear, we set $\phi$ as a non linear
+transformation. The constraint becomes:</p>
+
+<p>$y_i(\omega^T\phi(x_i)+b) \geq 1 - \xi_i~~i=1,…,n$</p>
+
+<p>Dual formulation is now:</p>
+
+<p>$max_\alpha~~-\frac{1}{2}\Sigma_{i,j} \alpha_i \alpha_j y_i y_j \phi(x_i)^T \phi(x_j) + \Sigma \alpha_i$</p>
+
+<p>$s.t.<del>0 \leq \alpha_i \leq C</del>i=1,…,n$</p>
+
+<p>$\Sigma \alpha_i y_i = 0~~i=1,…,n$</p>
+
+<p>The classification becomes:</p>
+
+<p>$f(x)=sign(\Sigma \alpha_i y_i \phi(x_i)^T \phi(x) + b)$</p>
+
+<p>To classify a new point, we thus need to be able to compute
+$\phi(x_i)^T \phi(x)$.</p>
+
+<p><strong>Kernel trick</strong>: there is no need to know an explicit expression of
+$\phi$ (i.e. knowing the coordinates of points in new set) since we are
+only looking at distances and angles, that is scalar product.</p>
+
+<p>Kernel functions implement those scalar products:
+$K(x,x’)=\phi(x)^T \phi(x’)$ where $\phi$ is a transformation function
+into a Hilbertian set $\phi : \mathcal{X} \to \mathcal{F}$</p>
+
+<p><em>Note</em>: an Hilbertian is a set with scalar product:
+$\mathcal{F}=(\mathcal{H},&lt;.,.&gt;)$</p>
+
+<p>Most used kernels:</p>
+
+<p>Linear kernel: $K(x,x’) = x^Tx’$ (we often call this setup a "no-kernel
+SVM")</p>
+
+<p>Polynomial kernel: $K(x,x’) = (x^Tx’+c)^d$</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Gaussian kernel: $K(x,x’) = exp(-\gamma</td>
+      <td> </td>
+      <td>x-x’</td>
+      <td> </td>
+      <td>^2)$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The optimisation problem can be written with kernel:</p>
+
+<p>$max_\alpha~~-\frac{1}{2}\Sigma_{i,j} \alpha_i \alpha_j y_i y_j K(x_i,x_j) + \Sigma \alpha_i$</p>
+
+<p>$s.t.<del>0 \leq \alpha_i \leq C</del>i=1,…,n$</p>
+
+<p>$\Sigma \alpha_i y_i = 0~~i=1,…,n$</p>
+
+<p>[Summary]{.underline}</p>
+
+<p>SVM allows to find complex non linear separations in transforming the
+problem into a higher dimension where data are linearly separable.</p>
+
+<p>From 1D to 2D:</p>
+
+<p><img src="/assets/img/kernel_2D.png" alt="image" height="20%" width="20%" /></p>
+
+<p>From 2D to 3D:</p>
+
+<p><img src="kernel_3D.png" alt="image" /></p>
+
+<p><img src="/assets/img/kernel_3D.png" alt="image" height="20%" width="20%" /></p>
+:ET

@@ -1,0 +1,14 @@
+I"è<p>Unsupervised learning aims at <strong>learning some underlying hidden
+structure of the data when we donâ€™t have the labels</strong>.</p>
+
+<p>Unsupervised models can be used as a pre step for supervised learning,
+e.g.:</p>
+
+<p>- reduce the training sample (dimensionality reduction: forward
+selection, PCA, autoencoders)</p>
+
+<p>- give output for unlabeled data (clustering, autoencoders)</p>
+
+<p>- grow the training sample (generative models? autoencoders?
+variational encoders?)</p>
+:ET

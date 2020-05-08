@@ -1,0 +1,223 @@
+I"�<p><strong>Parametric Tests</strong></p>
+
+<p>Procedure:</p>
+
+<p>1) find the test to perform</p>
+
+<p>2) find the right estimator to use</p>
+
+<p>3) deduce the reject region</p>
+
+<p>4) compute the test statistic</p>
+
+<p>5) retrieve quantiles of known distributions</p>
+
+<p>Example 1:</p>
+
+<p>(<em>inspired from example in Saporta p.325</em>)</p>
+
+<p>$X_1,…,X_n~(iid)\sim \mathbb{P_\theta}$</p>
+
+<p>We want to analyze the mean. $m=a$?</p>
+
+<p>1) find the test to perform</p>
+
+<p>$\left{
+    \begin{array}{ll}
+        \mathcal{H}_0: \theta=a <br />
+        \mathcal{H}_1: \theta&gt;a <br />
+    \end{array}
+\right.$</p>
+
+<p>2) find the right estimator to use</p>
+
+<p>Since we are testing the mean, we choose the empirical mean as
+<strong>estimator</strong> $\widehat{\theta}=\frac{1}{n}\sum{X_i}$</p>
+
+<p>3) deduce the reject region</p>
+
+<p>We fix $k$ for a rejection level $\alpha$. The rejection region is:</p>
+
+<p>$Z={\widehat{\theta} \ge k}$</p>
+
+<p>We look for $k$ defined as such:</p>
+
+<p>$\mathbb{P}_{\theta \in \Theta_0}(\widehat{\theta} \ge k)=\alpha$ =&gt;
+under $\mathcal{H}_0$, we reject the hypothesis when our estimator
+$\widehat{\theta}$ is above $k$</p>
+
+<p><em>Intuitively, we want to keep our hypothesis if it’s verified in most of
+the cases =&gt; under our hypothesis, there is a low probability that we
+are in the rejection region.</em></p>
+
+<p><em>Thus, if in real life we have a result that makes the hypothesis
+unverified, we reject the hypothesis. However, we have a risk of
+$\alpha$ that our hypothesis was correct and that we ended up in the
+rejection region by mistake.</em></p>
+
+<p>4) compute the test statistic</p>
+
+<p>We center and reduce the estimator in order to get the Gaussian law and
+thus end up with known quantiles:</p>
+
+<p>$\mathbb{P}<em>{\theta = a}(T \ge \frac{\sqrt{n} (k-a)}{\sqrt{\sigma^2}})=\alpha$
+with $T \sim</em>{n \to \infty} \mathcal{N}(0,1)$</p>
+
+<p>$T$ is the test statistic ([a test statistic is a random variable for
+which we know the law under $\mathcal{H}_0$]{style=”color: red”})</p>
+
+<p>5) retrieve quantiles of known distributions</p>
+
+<p>Finally, $\frac{\sqrt{n} (k-a)}{\sqrt{\sigma^2}}=q_\alpha$ =&gt; we can
+find $k$ telling us when rejecting $\mathcal{H}_0$</p>
+
+<p>[Why not looking at the average directly?]{style=”color: gray”}</p>
+
+<p>=&gt; the average can be influenced by the outliers and thus doesn’t take
+into consideration extreme events.</p>
+
+<p>[How about the median?]{style=”color: gray”}</p>
+
+<p>=&gt; the median doesn’t take into account the distribution / tendency of
+the values.</p>
+
+<p>$\alpha$ is also called the p-value. The lower the p-value is, the less
+error we make in rejecting our hypothesis so the more significant the
+rejection is.</p>
+
+<p>[p-value is the lowest error probability we want to make when rejecting
+our hypothesis.]{style=”color: red”}</p>
+
+<p>When performing OLS, our hypothesis is $\theta_{x1}=0$ so we don’t
+reject it if the pvalue column is higher than our threshold. In the
+below OLS result, pvalues are displayed in column $P&gt;|t|$. All variables
+are significant.</p>
+
+<p><img src="/assets/img/OLS_pvalue.png" alt="image" height="20%" width="20%" /></p>
+
+<p>Example 2: when the variance is not known.</p>
+
+<p>Say we want to test whether a coefficient is zero:</p>
+
+<p>1) find the test to perform</p>
+
+<p>$\left{
+    \begin{array}{ll}
+        \mathcal{H}_0: \theta_j=0 <br />
+        \mathcal{H}_1: \theta_j \neq 0 <br />
+    \end{array}
+\right.$</p>
+
+<p>2) find the right estimator to use</p>
+
+<p>$\widehat{\theta_j} = (X^TX)^{-1}X^TY$</p>
+
+<p>3) deduce the reject region</p>
+
+<p>$Z={k_1 \leq \widehat{\theta_j} \leq k_2}$</p>
+
+<p>4) compute the test statistic</p>
+
+<p>$T_j = \frac{\widehat{\theta_j}-\theta_j}{\sigma_{\theta_j}} = \frac{\widehat{\theta_j}}{\sigma_{\theta_j}}  \sim \mathcal{N}(0,1)$
+with $\sigma_{\theta_j} = \sigma \sqrt{(X^TX)^{-1}}$ (recall that
+$\sigma = \sigma_{\epsilon}$)</p>
+
+<p>Since we don’t know $\sigma$, we can use the Cochrane theorem to remove
+this value:</p>
+
+<p>$T_j = \frac{ \frac{\widehat{\theta_j}}{\sigma \sqrt{(X^TX)^{-1}}} \sim \mathcal{N}(0,1)}{\sqrt{\frac{\widehat{\sigma}^2 (n-p-1)}{\sigma^2} \sim \mathcal{X}_{n-p-1}}} \sim \mathcal{T}(n-p-1)$
+with $\widehat{\sigma}^2 = \frac{1}{n-p-1} \Sigma \epsilon ^2$</p>
+
+<p>$T_j = \frac{\widehat{\theta_j}}{\Sigma \epsilon ^2 \sqrt{(X^TX)^{-1}}}$</p>
+
+<p>5) retrieve quantiles of known distributions</p>
+
+<p>Finally,</p>
+
+<p>$\mathcal{P}_{\theta_j=0}(\frac{k_1}{\Sigma \epsilon ^2 \sqrt{(X^TX)^{-1}}} \leq T_j \leq \frac{k_2}{\Sigma \epsilon ^2 \sqrt{(X^TX)^{-1}}}) = \alpha$</p>
+
+<p>Thus,
+$\frac{k_1}{\Sigma \epsilon ^2 \sqrt{(X^TX)^{-1}}} = t_{\frac{\alpha}{2}}$
+(same for $k_2$)</p>
+
+<p>Example 3 (forward selection):</p>
+
+<p>Concept:</p>
+
+<p>Regress all variables one by one on the most significant variable’s
+residual, remove the most significant variable after each full round</p>
+
+<p>$sel _ variables \leftarrow \emptyset$
+$resid _mem \leftarrow \emptyset$ $T _stats \leftarrow \emptyset$
+$Y = X_j\theta$ $resid _mem \leftarrow resid _mem + {res}$ // adding
+residuals from previous regression
+$T _ stats \leftarrow T _stats + {T_j}$ // $T_j$ is computed as seen
+in example 2 $k \leftarrow argmax(T _ stats)$ $Y = resid _ mem (k)$
+$rem _ variable \leftarrow rem _ variable - {k}$
+$sel _ variables \leftarrow sel _ variables + {k}$</p>
+
+<p><img src="/assets/img/forward_sel_pval.png" alt="image" height="20%" width="20%" /></p>
+
+<p>(x-axis is the order in which we selected variables; see notebook
+<em>ACP_ForwardSelection_Ridge_Lasso.ipynb</em>)</p>
+
+<p>We can then select only the most significant variables based on p-values
+on variables from list $sel _ variables$</p>
+
+<p><em>Note</em>: since $pval = 2<em>(1-cdf(T)) = 2</em>\frac{1-(1-\alpha)}{2}$, choosing
+the biggest T-stat is equivalent to choose the smallest p-value</p>
+
+<p>Example 4 (F-test):</p>
+
+<p>When several variables are correlated (often the case in practice), the
+student test is not efficient enough since it does not take the
+correlation into account. F-test allows to test <strong>global</strong>
+significativity.</p>
+
+<p>Let’s say we have 4 variables and we want to check the significativity
+of 2 of them.</p>
+
+<p>$\left{
+    \begin{array}{ll}
+        \mathcal{H}_0: \theta_1 = \theta_2 = 0<br />
+        \mathcal{H}_1: \theta_1, \theta_2 \neq 0 <br />
+    \end{array}
+\right.$</p>
+
+<p>$SSR = sum~squared~residuals = \Sigma (\widehat{y_i} - y_i)^2$</p>
+
+<p>$F = \frac{(SSR_C - SSR_{NC})/(p_{NC} - p_C)}{(SSR_{NC})/(n-p_{NC})} \sim \mathcal{F}(p_{NC} - p_C, n-p_{NC})$</p>
+
+<p>NC: not constraint model</p>
+
+<p>C: constraint model</p>
+
+<p>Method:</p>
+
+<p>- OLS on not constraint model =&gt; computation of $SSR_{NC}$</p>
+
+<p>- OLS on constraint model =&gt; computation of $SSR_{C}$</p>
+
+<p>- Computation of the Fisher stat =&gt; computation of p-value (using
+survival function as above)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Non constraint model
+X0=np.column_stack((educ, exper, tenure, const))
+model=sm.OLS(y,X0)
+results = model.fit()
+u=results.resid
+SSR0=u.T@u
+
+# Constraint model
+X=np.column_stack((const, educ, tenure))
+model=sm.OLS(y,X)
+results = model.fit()
+u=results.resid
+SSR1=u.T@u
+
+# Computation of Fisher stat
+n=np.shape(X0)[0]
+F=((SSR1-SSR0)/1)/(SSR0/(n-4))
+f.sf(F,1,n-4) # p-value
+</code></pre></div></div>
+:ET
