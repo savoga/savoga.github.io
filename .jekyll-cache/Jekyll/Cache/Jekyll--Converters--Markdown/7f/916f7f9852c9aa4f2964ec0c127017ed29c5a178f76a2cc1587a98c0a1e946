@@ -1,57 +1,4 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Logistic Regression</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
-  </head>
-  <body>
-    <nav>
-    
-    <a href=/ >
-        Home
-    </a>
-    
-    <a href=/about.html >
-        About
-    </a>
-    
-    <a href=/machinelearning.html >
-        ML
-    </a>
-    
-    <a href=/stats.html >
-        Stats
-    </a>
-    
-    <a href=/projects.html >
-        Projects
-    </a>
-    
-    <a href=/extra.html >
-        Extra
-    </a>
-    
-</nav>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-tex2jax: {
-inlineMath: [['$','$'], ['\\(','\\)']],
-processEscapes: true},
-jax: ["input/TeX","input/MathML","input/AsciiMath","output/CommonHTML"],
-extensions: ["tex2jax.js","mml2jax.js","asciimath2jax.js","MathMenu.js","MathZoom.js","AssistiveMML.js", "[Contrib]/a11y/accessibility-menu.js"],
-TeX: {
-extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
-equationNumbers: {
-autoNumber: "AMS"
-}
-}
-});
-</script>
-
-<p><strong>Logistic regression</strong></p>
+I"z	<p><strong>Logistic regression</strong></p>
 
 <p>Logistic regression is used for binary classification.</p>
 
@@ -92,6 +39,4 @@ autoNumber: "AMS"
 <p>See <em>Neural Network</em> section for more details on optimization.</p>
 
 <p>Note: logistic regression is really a linear model since the objective is to find $\omega$ that is the slope of the line $\omega ^Tx + b$.</p>
-
-  </body>
-</html>
+:ET

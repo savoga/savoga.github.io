@@ -1,57 +1,4 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Logistic Regression</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
-  </head>
-  <body>
-    <nav>
-    
-    <a href=/ >
-        Home
-    </a>
-    
-    <a href=/about.html >
-        About
-    </a>
-    
-    <a href=/machinelearning.html >
-        ML
-    </a>
-    
-    <a href=/stats.html >
-        Stats
-    </a>
-    
-    <a href=/projects.html >
-        Projects
-    </a>
-    
-    <a href=/extra.html >
-        Extra
-    </a>
-    
-</nav>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-tex2jax: {
-inlineMath: [['$','$'], ['\\(','\\)']],
-processEscapes: true},
-jax: ["input/TeX","input/MathML","input/AsciiMath","output/CommonHTML"],
-extensions: ["tex2jax.js","mml2jax.js","asciimath2jax.js","MathMenu.js","MathZoom.js","AssistiveMML.js", "[Contrib]/a11y/accessibility-menu.js"],
-TeX: {
-extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
-equationNumbers: {
-autoNumber: "AMS"
-}
-}
-});
-</script>
-
-<p><strong>Logistic regression</strong></p>
+I"y	<p><strong>Logistic regression</strong></p>
 
 <p>Logistic regression is used for binary classification.</p>
 
@@ -73,7 +20,7 @@ autoNumber: "AMS"
 
 <p><ins>Loss function</ins></p>
 
-<p>If $y = 1$, we want $\sigma(\omega x)$ to be high =&gt; $1 - \sigma(\omega x)$ should be low. The loss function should be increasing with $1 - \sigma(\omega x) = 1 - \frac{1}{1+e^{-\omega x}} = \frac{1}{1+e^{\omega x}}$. Equivalently, it should be increasing with $1 + e^{-\omega x}$.</p>
+<p>If $y = 1$, we want $\sigma(\omega x)$ to be high =&gt; $1 - \sigma(\omega x)$ should be low. The loss function should be increasing with $1 - \sigma(\omega x) = 1 - \frac{1}{1+e^{-\omega x}} = \frac{1}{1+e^{\omega x}}$. Equivalently, it should be increasing with $1 + e^{-\omega x}$</p>
 
 <p>More generally, the loss function is defined as such: $\ell(f_{\omega}, (x,y)) = log(1 + e^{-y \omega x})$ (adding $y$ in the expression allows to take into account cases when $y = 1$ and $y = -1$).</p>
 
@@ -83,7 +30,7 @@ autoNumber: "AMS"
 
 <p>The advantage of the logistic loss function is that it is a convex function. Hence the ERM problem can be solved efficiently using santard methods.</p>
 
-<p>Estimation is done using maximum likelihood. Maximum likelihood is finding the parameter that maximizes the probability to have a specific event $(x_i, y_i)$. We want to maximize the <em>à posteriori</em> probability that depends on $x$:</p>
+<p>Estimation is done using maximum likelihood. Maximum likelihood is finding the parameter that maximizes the probability to have a specific event $(x_i, y_i)$. We want to maximize the \textit{à posteriori} probability that depends on $x$:</p>
 
 <p>$L(\omega, b) = \prod_{i=1}^n \pi(x_i)^{y_i}(1-\pi(x_i))^{1-y_i}$</p>
 
@@ -92,6 +39,4 @@ autoNumber: "AMS"
 <p>See <em>Neural Network</em> section for more details on optimization.</p>
 
 <p>Note: logistic regression is really a linear model since the objective is to find $\omega$ that is the slope of the line $\omega ^Tx + b$.</p>
-
-  </body>
-</html>
+:ET
