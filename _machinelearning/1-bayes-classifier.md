@@ -31,7 +31,7 @@ $$\begin{cases}
 
 Or, if $\mathcal{Y}$ is $\{-1,1\}$, we write the classifier as such: $$g(x) = 2 \mathbb{1} \{ \eta(x)>1/2 \}-1$$.
 
-$\underline{Theorem}$:
+<ins>Theorem</ins>:
 
 For any classifier g: $$\mathbb{R}^d \to \{0,1\}$$,
 $$\mathbb{P}(g^*(X) \neq Y) \le \mathbb{P}(g(X) \neq Y)$$
