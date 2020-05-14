@@ -1,0 +1,29 @@
+essayer d'ajouter des briques du thème minimal mistakes
+
+
+Installation gem-based:
+on voit pas les dossiers layout, assets, etc. pour plus de facilité
+--> correspond au quickstart de jekyll
+
+Moi je veux un truc avec 4 sections seulement, dispo depuis la page d'accueil :
+- Projets
+- Maths
+- ML
+- Qui suis-je?
+
+--> voir https://yleprince.github.io/
+
+Thèmes intéressants:
+- Minimal Resume
+... à explorer
+
+Tout faire from scratch en html comme ylp?
+Non car:
+- beaucoup de temps sur le javascript et prio = maths. La solution jekyll me permettra sûrement de me perfectionner dessus si je le souhaite.
+- Idéal pour LateX ? pas sûr car pas d'abstraction de l'html et peut-être qu'un retraitement sera nécessaire en plus.
+- Jekyll marche avec LateX
+
+14/05
+utiliser un thème tout fait ou partir d'un existant ?
+lire article créer thème soit même : https://jamstatic.fr/2017/10/03/creer-un-theme-jekyll/
+Mon thème: la même chose qu'actuellement, mais centrer le tout
