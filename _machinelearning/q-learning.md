@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Q-learning
 category: Reinforcement learning
 ---

@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: AdaBoost
 category: Supervised Learning
 ---

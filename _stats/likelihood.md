@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Likelihood method
 category: Tools
 ---

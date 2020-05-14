@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Neural network
 category: Supervised learning
 ---

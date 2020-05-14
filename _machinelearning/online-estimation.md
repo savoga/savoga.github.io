@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Online estimation
 category: Reinforcement learning
 ---

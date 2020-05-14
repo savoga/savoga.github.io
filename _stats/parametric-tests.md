@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Parametric tests
 category: Inferential statistics
 ---

@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Local Outier Factor
 category: Unsupervised learning
 ---

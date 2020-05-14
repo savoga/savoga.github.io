@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Online control
 category: Reinforcement learning
 ---

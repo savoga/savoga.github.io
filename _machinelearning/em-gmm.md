@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Expectation-maximization (GMM)
 category: Unsupervised learning
 ---

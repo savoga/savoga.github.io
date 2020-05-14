@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Expectation
 category: Tools
 ---
@@ -24,4 +25,4 @@ $\mathbb{E}[X] = \int x f(x) dx~(= \mathbb{E}_{\mathbb{P}}[X])$
 
 Conditional expectation (discrete case):
 
-$\mathbb{E}[Y|X=x] = \Sigma_y y \mathbb{P}(Y=y | X=x)$
+$$\mathbb{E}[Y|X=x] = \Sigma_y y \mathbb{P}(Y=y | X=x)$$

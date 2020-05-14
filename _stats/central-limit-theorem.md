@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Central limit theorem
 category: Tools
 ---

@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: ROC curve
 category: Predictive models
 ---

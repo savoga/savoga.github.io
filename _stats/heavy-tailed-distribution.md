@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Heavy-tailed distribution
 category: Tools
 ---

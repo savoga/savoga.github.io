@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Variational autoencoder
 category: Unsupervised learning
 ---

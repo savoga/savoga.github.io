@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: SVM
 category: Supervised learning
 ---

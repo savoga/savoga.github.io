@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Mass and density functions
 category: Tools
 ---

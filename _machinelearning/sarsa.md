@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: SARSA
 category: Reinforcement learning
 ---

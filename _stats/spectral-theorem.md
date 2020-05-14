@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Spectral theorem
 category: Tools
 ---

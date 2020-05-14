@@ -1,9 +1,10 @@
 ---
+layout: maths
 name: Mahalanobis distance
 category: Exploratory statistics
 ---
 
-Mahalanobis distance
+**Mahalanobis distance**
 
 Mahalanobis distance is a good alternative to Euclidean distance. For
 any given point $x$ in a set $X$, the squared Mahalanobis distance is:

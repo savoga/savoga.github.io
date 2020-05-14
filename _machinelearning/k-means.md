@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: K-means
 category: Unsupervised learning
 ---

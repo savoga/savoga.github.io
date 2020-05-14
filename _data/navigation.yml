@@ -1,12 +1,13 @@
-- name: Home
-  link: /
-- name: About
-  link: /about.html
-- name: ML
-  link: /machinelearning.html
-- name: Stats
-  link: /stats.html
-- name: Projects
-  link: /projects.html
-- name: Extra
-  link: /extra.html
+# Site navigation links
+
+- title: Home
+  url: /
+
+- title: ML
+  url: /machinelearning/
+
+- title: Stats
+  url: /stats/
+
+- title: About
+  url: /about/

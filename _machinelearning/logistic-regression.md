@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Logistic regression
 category: Supervised learning
 ---

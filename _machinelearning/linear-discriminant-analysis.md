@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Linear discriminant analysis
 category: Supervised learning
 ---

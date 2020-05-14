@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Correlation
 category: Tools
 ---

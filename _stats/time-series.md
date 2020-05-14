@@ -1,4 +1,5 @@
 ---
+layout: maths
 name: Time series
 category: Tools
 ---
