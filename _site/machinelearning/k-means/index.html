@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>K Means – Welcome</title>
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>K Means &#8211; Welcome</title>
     <meta name="description" content="K-means">
     <meta name="keywords" content="">
     <link rel="canonical" href="http://localhost:4000/machinelearning/k-means/">
@@ -32,21 +32,22 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://localhost:4000/assets/img/favicon/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/assets/img/favicon/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/assets/img/favicon/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/assets/img/favicon/apple-touch-icon-144x144.png">
-<link rel="icon" type="image/png" href="http://localhost:4000/assets/img/favicon/favicon.png">
-<link rel="shortcut icon" href="http://localhost:4000/assets/img/favicon/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://localhost:4000/assets/img/favicon/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/assets/img/favicon/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/assets/img/favicon/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/assets/img/favicon/apple-touch-icon-144x144.png" />
+<link rel="icon" type="image/png" href="http://localhost:4000/assets/img/favicon/favicon.png" />
+<link rel="shortcut icon" href="http://localhost:4000/assets/img/favicon/favicon.ico" />
 
     <!-- Feed -->
-    <link rel="alternate" type="application/rss+xml" title="Welcome" href="http://localhost:4000/feed.xml">
+    <link rel="alternate" type="application/rss+xml" title="Welcome" href="http://localhost:4000/feed.xml" />
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/main.css">
 </head>
 
   <body>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
         tex2jax: {
@@ -111,16 +112,16 @@
       <ul class="menu">
             
 				    
-				    <li><a class="link" href="http://localhost:4000/">Home</a></li>
+				    <li><a class="link" href="http://localhost:4000/" >Home</a></li>
 				
 				    
-				    <li><a class="link" href="http://localhost:4000/machinelearning/">ML</a></li>
+				    <li><a class="link" href="http://localhost:4000/machinelearning/" >ML</a></li>
 				
 				    
-				    <li><a class="link" href="http://localhost:4000/stats/">Stats</a></li>
+				    <li><a class="link" href="http://localhost:4000/stats/" >Stats</a></li>
 				
 				    
-				    <li><a class="link" href="http://localhost:4000/about/">About</a></li>
+				    <li><a class="link" href="http://localhost:4000/about/" >About</a></li>
 				
         </ul>
     </nav>
@@ -137,16 +138,16 @@
         <ul class="menuAna">
             
 				    
-				    <li class="item"><a class="link" href="http://localhost:4000/">Home</a></li>
+				    <li class="item"><a class="link" href="http://localhost:4000/" >Home</a></li>
 				
 				    
-				    <li class="item"><a class="link" href="http://localhost:4000/machinelearning/">ML</a></li>
+				    <li class="item"><a class="link" href="http://localhost:4000/machinelearning/" >ML</a></li>
 				
 				    
-				    <li class="item"><a class="link" href="http://localhost:4000/stats/">Stats</a></li>
+				    <li class="item"><a class="link" href="http://localhost:4000/stats/" >Stats</a></li>
 				
 				    
-				    <li class="item"><a class="link" href="http://localhost:4000/about/">About</a></li>
+				    <li class="item"><a class="link" href="http://localhost:4000/about/" >About</a></li>
 				
         </ul>
     </nav>
@@ -203,8 +204,7 @@ samples</p>
 proportional to the square distance to the closest current cluster
 center</p>
 
-<div class="highlighter-rouge">
-<pre class="highlight"><code>centers = []
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>centers = []
 centers.append(X[np.random.randint(X.shape[0])]) # inital center = one random sample
 distance = np.full(X.shape[0], np.inf) # a vector (n,1) with only infinity terms
 for j in range(1,self.n_clusters):
@@ -217,8 +217,7 @@ for j in range(1,self.n_clusters):
     sample = np.random.choice(X.shape[0], p = p) # one sample is 
                          # selected according to probabilities
     centers.append(X[sample])
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>[Note: this problem is called <em>NP-hard problem</em>. It means that its
 complexity is at least equal to the complexity of an
@@ -234,7 +233,7 @@ check...]{style=”color: gray”}</p>
 
 <p>[Turing machine (1936)]{style=”color: gray”}</p>
 
-<p><img src="/assets/img/turingmachine.png" alt="image" height="20%" width="20%"></p>
+<p><img src="/assets/img/turingmachine.png" alt="image" height="20%" width="20%" /></p>
 
 <p>["non-deterministic turing machine": itinerary can be represented by a
 tree...]{style=”color: gray”}</p>
