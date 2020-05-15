@@ -19,3 +19,11 @@ title: Probabilities & Statistics
     {% endfor %}
 </u1>
 {% endfor %}
+
+Sources:
+<br>
+- <a href="http://www.editionstechnip.com/fr/catalogue-detail/149/probabilites-analyse-des-donnees-et-statistique.html">
+    Probabilités, analyse des données et statistique</a>, Gilbert Saporta
+<br>
+- Télécom Paris courses
+- Wikipedia
