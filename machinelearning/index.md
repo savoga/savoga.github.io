@@ -1,10 +1,7 @@
 ---
 layout: page
 title: Machine Learning
-excerpt: "ML page"
 ---
-
-<h1>Machine learning</h1>
 
 {% for category in site.data.category-ml %}
 

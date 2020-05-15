@@ -1,10 +1,7 @@
 ---
 layout: page
-title: Stats
-excerpt: "stats page"
+title: Probabilities & Statistics
 ---
-
-<h1>Probabilities and Statistics</h1>
 
 {% for category in site.data.category-stats %}
 
