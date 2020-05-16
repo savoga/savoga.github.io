@@ -8,17 +8,27 @@ category: Theory
 
 $\ell$ the loss function to minimize:
 
-$\theta_{t+1}=\theta_t - \alpha \nabla \ell$
+$\omega_{t+1}=\omega_t - \alpha \nabla \ell$
 
-More details in Jupyter Notebook ML\_GS.ipynb.
+The most popular forms of gradient descent are:
+
+![image](/assets/img/global-gradient-descent.png){: height="15%" width="15%"}
+
+![image](/assets/img/stochastic-gradient-descent.png){: height="15%" width="15%"}
+
+![image](/assets/img/stochastic-random-gradient-descent.png){: height="15%" width="15%"}
+
+The main advantage of stochastic gradient is that it avoids computing the gradient descent on all the observations (greedy). However, in doing so, the gradient descent is subject to noise and can take longer to reach the optimum.
+
+*Note*: the gradient is the derivation w.r.t $\omega$
+
+*Note (stochastic and random gradient descent)*: the draw can be done with or without replacement.
 
 Proof of the formula:
 
-![image](/assets/img/GradientDescent_proof.png){: height="20%" width="20%"}
+![image](/assets/img/GradientDescent_proof.png){: height="5%" width="5%"}
 
-(Idemia courses \"DeepLearningTPT2018S1S2.pdf\")
-
-[Learning rate optimization]{.underline}
+<ins>Learning rate optimization</ins>
 
 Note:
 
@@ -86,4 +96,4 @@ $\sigma_{t} = \sqrt{\alpha (\sigma_{t-1})^2+(1-\alpha)(\nabla f_t)^2}$
 *Adam - Adaptive moment estimation*
 
 Adam = RMS + momentum =\> use of a exponential decaying average of past
-[squared]{.underline} gradients and past gradients
+**squared** gradients and past gradients
