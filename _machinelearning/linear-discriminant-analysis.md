@@ -11,27 +11,27 @@ sets of variables.
 
 These two conditional laws need to be gaussians with same covariance:
 
-$X | Y=+1 \sim \mathcal{N}(\mu_+,\Sigma)$ with density $f_+$
+$X \| Y=+1 \sim \mathcal{N}(\mu_+,\Sigma)$ with density $f_+$
 
-$X | Y=-1 \sim \mathcal{N}(\mu_-,\Sigma)$ with density $f_-$
+$X \| Y=-1 \sim \mathcal{N}(\mu_-,\Sigma)$ with density $f_-$
 
 Let $\pi_+$, $\pi_-$ be the simple probabilities $P(Y=+1)$, $P(Y=-1)$
 
-$\mathbb{P}\{Y=+1|X=x\} = \frac{\mathbb{P}\{Y=+1, X=x\}}{\mathbb{P}\{X=x\}}$
+$\mathbb{P}(Y=+1 \| X=x) = \frac{\mathbb{P}(Y=+1, X=x)}{\mathbb{P}(X=x)}$
 
-$\mathbb{P}\{Y=+1|X=x\} = \frac{\mathbb{P}\{X=x|Y=+1\} \mathbb{P}\{Y=+1\} }{\mathbb{P}\{X=x\} }$
+$\mathbb{P}(Y=+1 \| X=x) = \frac{\mathbb{P}(X=x \| Y=+1) \mathbb{P}(Y=+1) }{\mathbb{P}(X=x) }$
 
-$\mathbb{P}\{Y=+1|X=x\} = \frac{f_+ \pi_+}{\mathbb{P}\{X=x\} }$
+$\mathbb{P}(Y=+1 \| X=x) = \frac{f_+ \pi_+}{\mathbb{P}(X=x) }$
 
-$\mathbb{P}\{Y=+1|X=x\} = \frac{f_+ \pi_+}{(\mathbb{P}\{X=x|Y=+1\}\mathbb{P}\{Y= +1\} + \mathbb{P}\{X=x|Y=-1\}\mathbb{P}\{Y= -1\}) }$
+$\mathbb{P}(Y=+1 \| X=x) = \frac{f_+ \pi_+}{\mathbb{P}(X=x \| Y=+1)\mathbb{P}(Y= +1) + \mathbb{P}(X=x \| Y=-1)\mathbb{P}(Y= -1) }$
 
-$\mathbb{P}\{Y=+1|X=x\} = \frac{f_+ \pi_+}{(f_+\pi_+ + f_-\pi_-)}$
+$\mathbb{P}(Y=+1 \| X=x) = \frac{f_+ \pi_+}{(f_+\pi_+ + f_-\pi_-)}$
 
 Similarly,
 
-$\mathbb{P}\{Y=-1|X=x\} = \frac{f_- (1-\pi_+)}{\mathbb{P}\{X=x\} }$
+$\mathbb{P}(Y=-1 \| X=x) = \frac{f_- (1-\pi_+)}{\mathbb{P}(X=x) }$
 
-$\mathbb{P}\{Y=-1|X=x\} = \frac{f_- (1-\pi_+)}{(f_+\pi_+ + f_-\pi_-)}$
+$\mathbb{P}(Y=-1 \| X=x) = \frac{f_- (1-\pi_+)}{(f_+\pi_+ + f_-\pi_-)}$
 
 The result shows us that we can express the two conditionnal
 probabilities in terms of conditionnal densities and \"simple\"
@@ -43,27 +43,25 @@ $f(x)=\frac{1}{\sqrt{2 \pi |\Sigma|}}e^{-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)}
 In practice, $\mu_+$, $\mu_-$, $\pi_+$ and $\Sigma$ are unknown. Thus we
 use empiric values:
 
-$\widehat{\pi}_+ = m/n$
+$$\widehat{\pi}_+ = m/n$$
 
-$\widehat{\mu}_+ = \frac{1}{m} \Sigma \mathbbm{1}_{\{y_i=+1\}}x_i$
+$$\widehat{\mu}_+ = \frac{1}{m} \Sigma 1_{\{y_i=+1\}}x_i$$
 
-$\widehat{\mu}_- = \frac{1}{n-m} \Sigma \mathbbm{1}_{\{y_i=-1\}}x_i$
+$$\widehat{\mu}_- = \frac{1}{n-m} \Sigma 1_{\{y_i=-1\}}x_i$$
 
-$\widehat{\Sigma} = \frac{1}{n-2} ((m-1) \widehat{\Sigma}_+ + (n-m-1)\widehat{\Sigma}_-)$
+$$\widehat{\Sigma} = \frac{1}{n-2} ((m-1) \widehat{\Sigma}_+ + (n-m-1)\widehat{\Sigma}_-)$$
 
-$\widehat{\Sigma}_+ = \frac{1}{m-1} \Sigma \mathbbm{1}_{\{y_i=+1\}}(x_i-\widehat{\mu}_+)(x_i-\widehat{\mu}_+)^T$
+$$\widehat{\Sigma}_+ = \frac{1}{m-1} \Sigma 1_{\{y_i=+1\}}(x_i-\widehat{\mu}_+)(x_i-\widehat{\mu}_+)^T$$
 
-$\widehat{\Sigma}_- = \frac{1}{n-m-1} \Sigma \mathbbm{1}_{\{y_i=-1\}}(x_i-\widehat{\mu}_-)(x_i-\widehat{\mu}_-)^T$
+$$\widehat{\Sigma}_- = \frac{1}{n-m-1} \Sigma 1_{\{y_i=-1\}}(x_i-\widehat{\mu}_-)(x_i-\widehat{\mu}_-)^T$$
 
-[Classification]{.underline}
+<ins>Classification</ins>
 
-We predict class = 1 when $\mathbb{P}(Y=+1 | X) > \mathbb{P}(Y=-1 | X)$
+We predict class = 1 when $\mathbb{P}(Y=+1 \| X) > \mathbb{P}(Y=-1 \| X)$
 
-=\> $\frac{\mathbb{P}(Y=+1 | X)}{\mathbb{P}(Y=-1 | X)} > 1$
+=\> $\frac{\mathbb{P}(Y=+1 \| X)}{\mathbb{P}(Y=-1 \| X)} > 1$
 
-=\> $\log(\frac{\mathbb{P}(Y=+1 | X)}{\mathbb{P}(Y=-1 | X)}) > 0$
-
-=\>
+=\> $\log(\frac{\mathbb{P}(Y=+1 \| X)}{\mathbb{P}(Y=-1 \| X)}) > 0$
 
 Using previous conditional probability expressions, we end up with the
 following prediction rule:
@@ -73,13 +71,15 @@ $$\begin{cases}
       -1 & \text{otherwise}
     \end{cases}$$
 
-$\widehat{\mu}_+$, $\widehat{\mu}_-$, $\widehat{\pi}_+$ and
-$\widehat{\Sigma}$ will be computed with *train data*.
+$$\widehat{\mu}_{+}$$
+, $$\widehat{\mu}_-$$,
+ $$\widehat{\pi}_+$$ and
+$$\widehat{\Sigma}$$ will be computed with *train data*.
 
 $x$ is the *test data*.
 
-*Note*: $\widehat{\Sigma}^{-1}(\widehat{\mu}_+ - \widehat{\mu}_-)$ is
-the **Fisher function** (Saporta).
+*Note*: $$\widehat{\Sigma}^{-1}(\widehat{\mu}_+ - \widehat{\mu}_-)$$ is
+the **Fisher function** (see Saporta document).
 
 
     class LDAClassifier():
