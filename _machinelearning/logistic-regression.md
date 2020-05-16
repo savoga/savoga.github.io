@@ -34,7 +34,7 @@ Recall that the log is a monotonic function.
 
 <ins>Estimation</ins>
 
-The advantage of the logistic loss function is that it is a convex function. Hence the ERM problem can be solved efficiently using santard methods.
+The advantage of the logistic loss function is that it is a convex function. Hence the ERM problem can be solved efficiently using standard methods.
 
 Estimation is done using maximum likelihood. Maximum likelihood is finding the parameter that maximizes the probability to have a specific event $(x_i, y_i)$. We want to maximize the *à posteriori* probability that depends on $x$:
 
