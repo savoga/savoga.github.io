@@ -4,8 +4,7 @@ name: Biais-complexity Trade-off
 category: Theory
 ---
 
-Bias-Complexity trade-off {#sec:bias-complexity-trade-off .unnumbered}
-=========================
+**Bias-Complexity trade-off**
 
 $ERM$ = Empiric Risk Minimization algorithm
 
