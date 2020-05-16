@@ -6,7 +6,7 @@ category: Supervised learning
 
 **SVM**
 
-[Margin]{.underline}
+<ins>Margin</ins>
 
 This idea of SVM is to separate data as best as possible using a margin.
 
@@ -24,29 +24,28 @@ Computing $H_1 - H_{-1}$ we get:
 
 $(x_1-x_{-1})\omega^T=2$
 
-=\> $||x_1-x_{-1}||=\frac{2}{||\omega||}$
+=\> $\|\|x_1-x_{-1}\|\|=\frac{2}{\|\|\omega\|\|}$
 
-The SVM problem starts with a **margin maximization**. [We want to
-maximize the distance between $x_1$ and $x_{-1}$ (**to be double
-checked**)]{style="color: orange"} and it is equivalent to minimizing
-$||\omega||$. Thus the optimization problem is written as such:
+The SVM problem starts with a **margin maximization**. We want to
+maximize the distance between $x_1$ and $x_{-1}$ and it is equivalent to minimizing
+$\|\|\omega \|\|$. Thus the optimization problem is written as such:
 
-$min_{\omega,b}~\frac{1}{2}||\omega||^2$
+<p style="text-align: center;">$min_{\omega,b}~\frac{1}{2}\|\omega\|^2$</p>
 
-$s.t.~y_i(\omega^Tx_i+b) \geq 1$ $i=1,...,n$
+<p style="text-align: center;">$s.t.~y_i(\omega^Tx_i+b) \geq 1$ $i=1,...,n$</p>
 
-[Primal formulation]{.underline}
+<ins>Primal formulation</ins>
 
-The above problem reflects the case where all data are perfectly
+The above problem reflects the case when all data are perfectly
 separable, this is not true in practice. We thus add an error term
 $\xi_i$ for each observation. This leads to the **primal formulation**
 of the problem:
 
-$min_{\omega,b, \xi}~\frac{1}{2}||\omega||^2+C\Sigma_{i=1}^{n}\xi_i$
+<p style="text-align: center;">$min_{\omega,b, \xi}~\frac{1}{2}\|\omega\|^2+C\Sigma_{i=1}^{n}\xi_i$</p>
 
-$s.t.~y_i(\omega^Tx_i+b) \geq 1 - \xi_i$ $i=1,...,n$
+<p style="text-align: center;">$s.t.~y_i(\omega^Tx_i+b) \geq 1 - \xi_i$ $i=1,...,n$</p>
 
-$\xi_i \geq 0$ $i=1,...,n$
+<p style="text-align: center;">$\xi_i \geq 0$ $i=1,...,n$</p>
 
 *Note*: the problem can be rewritten with the hinge loss function
 
@@ -63,9 +62,9 @@ $=> \xi_i = hinge(f(x))$ where $hinge$ is the *Hinge loss* function
 
 $hinge(f(x)) = (1 - yf(x))_+$
 
-$min_{\omega,b}~\frac{1}{2}||\omega||^2+C\Sigma_{i=1}^{n} (0, 1 - y_i(\omega^Tx_i+b))_+$
+<div align="center">$min_{\omega,b}~\frac{1}{2}\|\omega\|^2+C\Sigma_{i=1}^{n} (0, 1 - y_i(\omega^Tx_i+b))_+$</div>
 
-[Lagrange]{.underline}
+<ins>Lagrange</ins>
 
 We can write this problem using Lagrange formulation, that is,
 integrating the constraints into the main formula:
@@ -84,7 +83,7 @@ $\frac{\partial\mathcal{L}}{\partial \xi_i} = 0 => C - \alpha_i  - \mu_i = 0 => 
 
 Since $\alpha_i, \mu_i \geq 0$ we have $C \geq \alpha_i \geq 0$
 
-[Dual formulation]{.underline}
+<ins>Dual formulation</ins>
 
 We can rewrite the problem using the first order conditions above:
 
@@ -105,28 +104,28 @@ $min_\omega max_\alpha$ as $max_\alpha min_\omega$
 
 This leads to the problem in its **dual formulation**:
 
-$max_\alpha~~-\frac{1}{2}\Sigma_{i,j} \alpha_i \alpha_j y_i y_j x_i^T x_j + \Sigma \alpha_i$
+<p style="text-align: center;">$max_\alpha~~-\frac{1}{2}\Sigma_{i,j} \alpha_i \alpha_j y_i y_j x_i^T x_j + \Sigma \alpha_i$</p>
 
-$s.t.~~0 \leq \alpha_i \leq C~~i=1,...,n$
+<p style="text-align: center;">$s.t.~~0 \leq \alpha_i \leq C~~i=1,...,n$</p>
 
-$\Sigma \alpha_i y_i = 0~~i=1,...,n$
+<div align="center">$\Sigma \alpha_i y_i = 0~~i=1,...,n$</div>
 
 Using the above expression of $\omega$ (optimal condition), the
 classification function is:
 
 $f(x)=sign(\Sigma \alpha_i y_i x_i^T x + b)$
 
-[Kernel]{.underline}
+<ins>Kernel</ins>
 
 Kernels are used when separation is non linear.
 
 Recall the primal formulation:
 
-$min_{\omega,b, \xi}~\frac{1}{2}||\omega||^2+C\Sigma_{i=1}^{n}\xi_i$
+<div align="center">$min_{\omega,b, \xi}~\frac{1}{2}\|\omega\|^2+C\Sigma_{i=1}^{n}\xi_i$</div>
 
-$s.t.~y_i(\omega^Tx_i+b) \geq 1 - \xi_i$ $i=1,...,n$
+<div align="center">$s.t.~y_i(\omega^Tx_i+b) \geq 1 - \xi_i$ $i=1,...,n$</div>
 
-$\xi_i \geq 0$ $i=1,...,n$
+<div align="center">$\xi_i \geq 0$ $i=1,...,n$</div>
 
 When separation is non linear, we set $\phi$ as a non linear
 transformation. The constraint becomes:
@@ -135,11 +134,11 @@ $y_i(\omega^T\phi(x_i)+b) \geq 1 - \xi_i~~i=1,...,n$
 
 Dual formulation is now:
 
-$max_\alpha~~-\frac{1}{2}\Sigma_{i,j} \alpha_i \alpha_j y_i y_j \phi(x_i)^T \phi(x_j) + \Sigma \alpha_i$
+$$max_\alpha~~-\frac{1}{2}\Sigma_{i,j} \alpha_i \alpha_j y_i y_j \phi(x_i)^T \phi(x_j) + \Sigma \alpha_i$$
 
-$s.t.~~0 \leq \alpha_i \leq C~~i=1,...,n$
+$$s.t.~0 \leq \alpha_i \leq C~~i=1,...,n$$
 
-$\Sigma \alpha_i y_i = 0~~i=1,...,n$
+$$\Sigma \alpha_i y_i = 0~~i=1,...,n$$
 
 The classification becomes:
 
@@ -166,27 +165,25 @@ SVM\")
 
 Polynomial kernel: $K(x,x') = (x^Tx'+c)^d$
 
-Gaussian kernel: $K(x,x') = exp(-\gamma||x-x'||^2)$
+Gaussian kernel: $K(x,x') = exp(-\gamma\|\|x-x'\|\|^2)$
 
 The optimisation problem can be written with kernel:
 
-$max_\alpha~~-\frac{1}{2}\Sigma_{i,j} \alpha_i \alpha_j y_i y_j K(x_i,x_j) + \Sigma \alpha_i$
+$$max_\alpha~~-\frac{1}{2}\Sigma_{i,j} \alpha_i \alpha_j y_i y_j K(x_i,x_j) + \Sigma \alpha_i$$
 
-$s.t.~~0 \leq \alpha_i \leq C~~i=1,...,n$
+$$s.t.~~0 \leq \alpha_i \leq C~~i=1,...,n$$
 
-$\Sigma \alpha_i y_i = 0~~i=1,...,n$
+$$\Sigma \alpha_i y_i = 0~~i=1,...,n$$
 
-[Summary]{.underline}
+<ins>Summary</ins>
 
 SVM allows to find complex non linear separations in transforming the
 problem into a higher dimension where data are linearly separable.
 
 From 1D to 2D:
 
-![image](/assets/img/kernel_2D.png){: height="20%" width="20%"}
+![image](/assets/img/kernel_2D.png){: height="10%" width="10%"}
 
 From 2D to 3D:
-
-![image](kernel_3D.png)
 
 ![image](/assets/img/kernel_3D.png){: height="20%" width="20%"}
