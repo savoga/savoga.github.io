@@ -1,6 +1,6 @@
 Welcome on my website!
 
-**Credit**
+**Credits**
 
 This website has been powered by [Jekyll](https://jekyllrb.com/) hosted on GitHub.
 
