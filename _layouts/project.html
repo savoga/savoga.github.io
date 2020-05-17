@@ -68,15 +68,16 @@
                 <img src= "{{ project.image }}" alt="">
               </div>
               <div class="urunAdi">
-                <a href="{{ project.url }}">{{ project.title }}</a>
+                <a href="{{ project.git_url }}">{{ project.title }}</a>
               </div>
               <div class="aciklamaUrun">
-                {{ project.excerpt }}
+                <center>{{ project.excerpt }}</center>
               </div>
             </div>
           {% endif %}
         {% endfor %}
       </div>
     </div>
+    {% include footer.html %}
   </body>
 </html>
