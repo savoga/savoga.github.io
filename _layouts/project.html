@@ -61,23 +61,22 @@
     </div>
     <div class="ortalaAna">
       <div class="programlar">
-        {% for post in site.posts %}
-          {% if post.project %}
+        {% for project in site.projects %}
+          {% if project.publish %}
             <div class="program">
               <div class="urunResmi">
-                <img src="{{ post.image }}" alt="">
+                <img src= "{{ project.image }}" alt="">
               </div>
               <div class="urunAdi">
-                <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                <a href="{{ project.url }}">{{ project.title }}</a>
               </div>
               <div class="aciklamaUrun">
-                {{ post.excerpt }}
+                {{ project.excerpt }}
               </div>
             </div>
           {% endif %}
         {% endfor %}
       </div>
     </div>
-    {% include footer.html %}
   </body>
 </html>
