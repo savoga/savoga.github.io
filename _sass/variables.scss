@@ -3,11 +3,11 @@
 @import url("https://fonts.googleapis.com/css?family=Bree+Serif");
 @import url("https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:900");
 
-$font1: Roboto, serif;
-$font2: PT Mono;
+$font1: Roboto, serif; // not used ?
+$font2: PT Mono; // not used ?
 $title-font   : Lobster, cursive; // titre du site
 $menu-font    : Alegreya Sans SC, sans-serif; // boutons du menu
-$main-font    : Roboto, serif; // texte des articles
+$main-font    : Roboto; // texte des articles
 
 // Colors
 $blue: #3498db;
@@ -78,9 +78,9 @@ $danger				 : #C64537;
 $info		         : #308cbc;
 
 //fonts
-$font1               : Fira Sans,sans-serif;
-$font2               : Inconsolata;
-$alt-font            : Roboto, serif;
+$font1               : Fira Sans,sans-serif; // not used?
+$font2               : Inconsolata; // not used?
+$alt-font            : Roboto, serif; // not used?
 $doc-font-size       : 16;
 $doc-line-height     : 26;
 
