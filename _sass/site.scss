@@ -73,10 +73,10 @@ body {
 
 .aciklamalar {
   font-family: $title-font;
-  margin-left: 50;
   float: left;
+  text-align: center;
   font-size: 20px;
-  margin-top: 25px;
+  margin-left: 135px;
   color: $thrid-color;
 	opacity: 0;
 	animation-delay: 1s;
