@@ -1,0 +1,1 @@
+lunapic --> photo editor for favicon
