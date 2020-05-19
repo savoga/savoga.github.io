@@ -44,9 +44,8 @@ ML:
 ajouter Perceptron
 ajouter KNN
 ajouter Tree
-vérifier algo gradient descent (calcul de l'espérance hors de la dernière boucle ?)
-Relecture à partir de neural network
 Neural network: proof from binary law (Bernoulli) to cross-entropy
 
 Stats:
 ajouter notebook
+relecture à partir de Parametric Tests
