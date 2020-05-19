@@ -1,6 +1,6 @@
 ---
 layout: maths
-name: Local Outier Factor
+name: Local Outlier Factor
 category: Unsupervised learning
 ---
 
@@ -13,7 +13,8 @@ VS local density of test observations.
 <ins>Reachability distance</ins>
 
 $$reachability \mbox{-} distance_k(A,B) = max \{ k \mbox{-} distance (B), d(A,B)\}$$
-= reachability of A *from* B.\
+= reachability of A *from* B.
+
 $k \mbox{-} distance (B)$: distance from B to its kth nearest neighbor.
 
 The reachability distance of A from B is *at least* the distance between
@@ -30,23 +31,27 @@ distance, Mahalanobis distance, etc.
 
 <ins>Local reachability density</ins>
 
-$lrd_k (A) = \frac{1}{\Sigma_{B \in N_k(A)} reachability \mbox{-} distance_k(A,B) / |N_k(A)|}$\
+$$lrd_k (A) = \frac{1}{\Sigma_{B \in N_k(A)} reachability \mbox{-} distance_k(A,B) / |N_k(A)|}$$
+
 It's the inverse of the average of reachability-distances of A from B.
 
 When A is very far from its neighbors: sum of reachability distances is
-high =\> local reachability density is small.
+high => local reachability density is small.
 
 <ins>Local Outlier Factor</ins>
 
 LOF computation consists of comparing the local densities of a point VS
-its neighbors.\
-$LOF_k(A) : =  \frac{\frac{\Sigma_{B \in N_k(A)}lrd_k(B)}{lrd_k(A)}}{|N_k(A)|}$\
+its neighbors.
+$LOF_k(A) : =  \frac{\frac{\Sigma_{B \in N_k(A)}lrd_k(B)}{lrd_k(A)}}{|N_k(A)|}$
+
 $LOF_k(A) > 1$: A is an outlier. Local reachability density of A is
 small compared to its neighbors.
 
 $LOF_k(A) < 1$: A is an inlier.
 
-![image](\assets\img\LOF.png){: height="15%" width="15%"}
+<figure>
+    <img src="\assets\img\LOF.png"/>
+</figure>
 
 On this figure, $k = 3$. We can see that the reachability distance of A
 from its neighbors is high (red segments). The local reachability

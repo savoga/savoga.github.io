@@ -4,21 +4,20 @@ name: Neural network
 category: Supervised learning
 ---
 
-**Neural network**
+**Neural network (one layer)**
 
-[Logistic regression with a neural network mindset]{.underline}
-
-Based on the example from coursera (*deeplearning.ai*)
+<ins>Logistic regression with a neural network mindset</ins>
 
 Let us take the example of an image that we want to classify in a
 **binary** way: man/woman
 
 The picture is vectorized as a vector of pixels :
-$\begin{pmatrix}x_1\\...\\x_p\end{pmatrix}$
+$$\begin{pmatrix}x_1 \\
+    \vdots \\
+    x_p
+\end{pmatrix}$$
 
-We use a regression to predict if it's a man/woman:
-
-$y=\omega^Tx + b$
+We use a regression to predict if it's a man/woman: $y=\omega^Tx + b$
 
 Note: $x$ are all the pixels of **one** image.
 
@@ -37,13 +36,11 @@ Thus, the loss function is:
 
 $$\mathcal{L}(y, \widehat{y})=-y\log(\widehat{y})+(1-y)\log(1-\widehat{y})$$
 
-Proof: TODO from binary law (Bernoulli) to cross-entropy
-
 The cost function is the empiric loss on all examples:
 
 $$J(\omega, b)=\frac{1}{m}\Sigma_{i=1}^m\mathcal{L}(\widehat{y}^{(i)}, y^i)$$
 
-[Forward propagation]{.underline}
+<ins>Forward propagation</ins>
 
 $$x_1,x_2, \omega_1,\omega_p,b \to z=\omega_1x_1 + \omega_2x_2 + b \to \widehat{y}=a=\sigma(z) \to \mathcal{L}(a,y)$$
 
@@ -53,7 +50,7 @@ $$x_1,x_2, \omega_1,\omega_p,b \to z=\omega_1x_1 + \omega_2x_2 + b \to \widehat{
 
 \- Third arrow: error
 
-[Backward propagation]{.underline}
+<ins>Backward propagation</ins>
 
 The idea is: with the error computed on the last step, we go backward in
 order to correct the parameters $\omega$ and $b$.

@@ -1,17 +1,14 @@
 ---
 layout: maths
 name: Expectation-maximization (GMM)
+title: Expectation-maximization (GMM)
 category: Unsupervised learning
 ---
 
 **Expectation-Maximization (EM) in the case of GMM (Gaussian Mixture
 Model)**
 
-(for more details, see document *gmm.pdf* in Cloud folder)
-
 GMM problem aims at estimating parameters of a sample distribution.
-(\"Generative models\" p. 295 [Understanding Machine
-Learning]{.underline}).
 
 A GMM sample is composed of $j$ Gaussian variables (*clusters*)
 distributed with proportions $(\pi_1,...,\pi_k)$ ($\Sigma \pi_i =1$)
@@ -28,7 +25,7 @@ densities:
 
 $$p_\theta(x) = \Sigma_{j=1}^{k}\pi_j f_j(x)~~~~~~~(*)$$
 
-[Estimation]{.underline}
+<ins>Estimation</ins>
 
 We want to estimate $\theta = (\pi, \mu, \Sigma)$ where:
 
@@ -70,12 +67,13 @@ $$p_\theta(x,z)=p_\theta(x)p_\theta(z|x)$$
 
 As seen previously: $p_\theta(x,z)=\Pi \pi_{z_i}f_{z_i}(x_i)$
 
-$p_\theta(z|x)=\Pi p_\theta(z_i|x_i)=\frac{\Pi \pi_{z_i}f{z_i}(x_i)}{p_\theta(x_i)} \propto \Pi \pi_{z_i}f{z_i}(x_i)$
+$p_\theta(z \| x)=\Pi p_\theta(z_i \| x_i)=\frac{\Pi \pi_{z_i}f{z_i}(x_i)}{p_\theta(x_i)} \propto \Pi \pi_{z_i}f{z_i}(x_i)$
 
 Given an initial parameter $\theta_0$, the *expected* log-likelihood is
 written as such:
 
 $$\mathbb{E}_{\theta_0}[l(\theta;z)]=\Sigma p_{\theta_0}(z|x) l(\theta;z)$$
+
 $$\mathbb{E}_{\theta_0}[l(\theta;z)]=\Sigma_{j} \Sigma_{i} p_{ij}(log\pi_j+logf_j(x_i))$$
 
 We now have an expression that doesn't depend on $z$ but only on

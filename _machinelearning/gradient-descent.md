@@ -26,7 +26,9 @@ The main advantage of stochastic gradient is that it avoids computing the gradie
 
 Proof of the formula:
 
-![image](/assets/img/GradientDescent_proof.png){: height="5%" width="5%"}
+<figure>
+    <img src="/assets/img/GradientDescent_proof.png">
+</figure>
 
 <ins>Learning rate optimization</ins>
 

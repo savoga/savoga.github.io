@@ -136,6 +136,7 @@ figure {
   padding-bottom: 10px;
   @include clearfix();
   img {
+    width: 500px; // image size in pages
     margin-bottom: 10px;
     @include rounded(4px);
   }

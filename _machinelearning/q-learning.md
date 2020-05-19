@@ -14,7 +14,7 @@ $$\pi(s) \leftarrow
     random & \text{with probability}~\epsilon
     \end{cases}$$
 
-$\underline{Estimation}$: unlike SARSA, Q-learning aims at updating the estimator
+<ins>Estimation</ins>: unlike SARSA, Q-learning aims at updating the estimator
 using the best action at each iteration:
 
 $\forall t, Q(s_t, a_t) \xleftarrow{\alpha} r_t + \gamma max_{a} Q(s_{t+1}, a)$
