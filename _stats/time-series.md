@@ -6,34 +6,29 @@ category: Tools
 
 **Time series**
 
-[Differential equations]{.underline}
+<ins>Differential equations</ins>
 
 A differential equation is an equation with the following
 characteristics:
 
-\- variables = functions
+- variables = functions
 
-\- it expresses the relationship of functions (variables) with their
+- it expresses the relationship of functions (variables) with their
 derivatives
 
 Case of *linear and constant coefficient* differential equations:
 
-$a_ny^{(n)} + a_{n-1}y^{(n-1)} + ... + a_1y' + a_0y = 0$
+$$a_ny^{(n)} + a_{n-1}y^{(n-1)} + ... + a_1y' + a_0y = 0 \text{ (E)}$$
 
-$(n)$: n-th derivative
+<center>$(n)$: n-th derivative</center>
 
-In order to solve such equations, we use *characteristic equations*:
+In order to solve such equations, we use *characteristic equations*. Let $y(x) = e^{rx}$
 
-$a_ny^{(n)} + a_{n-1}y^{(n-1)} + ... + a_1y' + a_0y = 0$ (E)
-
-Let $y(x) = e^{rx}$
-
-\(E\) =\>
-$a_nr^n e^{rx} + a_{n-1}r^{(n-1)} e^{rx} + ... + a_1 r e^{rx} + a_0e^{rx} = 0$
+(E) => $a_nr^n e^{rx} + a_{n-1}r^{(n-1)} e^{rx} + ... + a_1 r e^{rx} + a_0e^{rx} = 0$
 
 Since $e^{rx} \neq 0$
 
-\(E\) =\> $a_nr^n + a_{n-1}r^{(n-1)} + ... + a_1 r + a_0 = 0$
+(E) => $a_nr^n + a_{n-1}r^{(n-1)} + ... + a_1 r + a_0 = 0$
 
 We thus end up with a polynomial function.
 
@@ -41,7 +36,7 @@ In order to find the general solution of (E), we can find the solution
 of the characteristic equation and deduce the general solution (using
 exponential).
 
-[Autoregressive processes]{.underline}
+<ins>Autoregressive processes</ins>
 
 Autoregressive processes are a specifc case of *differential equations*.
 
@@ -51,7 +46,7 @@ Characteristic equation:
 
 $r^k - \beta_1 r^{k-1} - ... - \beta_{k-1} r - \beta_k = 0$
 
-[Stationary processes]{.underline}
+<ins>Stationary processes</ins>
 
 A stationary process has the same moment (expectation, variance, etc.)
 in every single point.
@@ -105,7 +100,7 @@ To detect stationarity, we can perform a unit root test such as
 
 Non stationarity can be corrected in several ways :
 
-\- time regression : performing a regression on time and working with
+- time regression : performing a regression on time and working with
 the error term
 
 Example : if $y_t$ in non stationary
@@ -113,15 +108,16 @@ Example : if $y_t$ in non stationary
 $y_t = \beta_0 + \beta_1 t +\epsilon_t$ --\> $\epsilon_t$ will not
 depend on time anymore
 
-\- finite differences : removing previous term to each observation
+- finite differences : removing previous term to each observation
 $y_t = y_t - y_{t-1}$ --\> this will have the effect to remove the trend
 
-\- moving average XxX
+- moving average NxN
 
 Example : using (double) centered moving average 5x5
 
-
-    cpi_roll = cpi.rolling(window=5).mean() # cell at index 4 is the mean of the 5 previous ones (inclusive)
-    cpi_mm = cpi - cpi_roll
-    cpi_roll_2 = cpi_mm.rolling(window=5).mean()
-    cpi_mm_2 = cpi_mm - cpi_roll_2
+```
+cpi_roll = cpi.rolling(window=5).mean() # cell at index 4 is the mean of the 5 previous ones (inclusive)
+cpi_mm = cpi - cpi_roll
+cpi_roll_2 = cpi_mm.rolling(window=5).mean()
+cpi_mm_2 = cpi_mm - cpi_roll_2
+```

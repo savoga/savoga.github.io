@@ -21,10 +21,10 @@ $L(\theta; x_1,...,x_n) = \prod_{i=1}^{n}\mathbb{P}(X = x_i; \theta)$
 *Note (wording clarification)*:
 $L(\theta | X) = \mathbb{P} (X | \theta)$
 
-$\mathbb{P} (X | \theta)$: the probability of observing an event with
+- $\mathbb{P} (X | \theta)$: the probability of observing an event with
 fixed model parameters.
 
-$L(\theta | X)$: the likelihood of the parameters taking certain values
+- $L(\theta | X)$: the likelihood of the parameters taking certain values
 given that we observe an event.
 
 Intuitively, we want to find the $\theta$ that maximizes a certain
@@ -32,7 +32,8 @@ event, that is, obtaining some data $X$ (which is why we have
 $X | \theta$).
 
 We often use the log in order to get rid of power coefficients appearing
-with the product.\
+with the product.
+
 *likelihood equation*: $\frac{d}{d\theta}ln(L(x_1,...,x_n;\theta))=0$
 
 *Note*: in machine learning, we use likelihood maximization in
