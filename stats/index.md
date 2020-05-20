@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Probabilities & Statistics
+title: Notes on probability & statistics
 ---
 
 {% for category in site.data.category-stats %}

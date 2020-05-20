@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Machine Learning
+title: Notes on machine learning
 ---
 
 {% for category in site.data.category-ml %}
