@@ -30,7 +30,7 @@ sass:
 
 # Social
 # if you don't have any of social below, comment the line.
-#email:
+email: savoure.gael@gmail.com
 #twitter: username
 #facebook: username
 #google:
@@ -42,7 +42,7 @@ sass:
 #bing-verify:
 #github: username
 #stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
-#linkedin: username
+linkedin: gaelsavoure
 #xing: username
 #instagram: username
 #lastfm: username

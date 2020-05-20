@@ -12,7 +12,7 @@ title: Probabilities & Statistics
         {% for t in topicCurr %}
             {% if t.category == category.name %}
                 <li class="nobull">
-                    <a class="sectionCourses" href="{{ t.url }}">{{ t.name }}</a>
+                    <a class="cleanLink" href="{{ t.url }}">{{ t.name }}</a>
                 </li>
             {% endif %}
         {% endfor %}
