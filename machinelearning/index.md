@@ -5,14 +5,14 @@ title: Machine Learning
 
 {% for category in site.data.category-ml %}
 
-<p>{{ category.name }}</p>
+<h3>{{ category.name }}</h3>
 <u1>
     {% for topic in site.data.topic-ml %}
         {% assign topicCurr = site.machinelearning | where: "name", topic.name %}
         {% for t in topicCurr %}
             {% if t.category == category.name %}
-                <li>
-                    <a href="{{ t.url }}">{{ t.name }}</a>
+                <li class="nobull">
+                    <a class="sectionCourses" href="{{ t.url }}">{{ t.name }}</a>
                 </li>
             {% endif %}
         {% endfor %}
@@ -20,7 +20,7 @@ title: Machine Learning
 </u1>
 {% endfor %}
 
-Sources:
+<i>Sources</i>:
 <br>
 - <a href="https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf">
     Understanding Machine Learning: From Theory to Algorithms</a>, Shai Shalev-Shwartz and Shai Ben-David
