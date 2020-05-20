@@ -8,43 +8,37 @@ category: Inferential statistics
 
 Procedure:
 
-1\) find the test to perform
+1) find the test to perform
 
-2\) find the right estimator to use
+2) find the right estimator to use
 
-3\) deduce the reject region
+3) deduce the reject region
 
-4\) compute the test statistic
+4) compute the test statistic
 
-5\) retrieve quantiles of known distributions
+5) retrieve quantiles of known distributions
 
 Example 1:
-
-(*inspired from example in Saporta p.325*)
 
 $X_1,...,X_n~(iid)\sim \mathbb{P_\theta}$
 
 We want to analyze the mean. $m=a$?
 
-1\) find the test to perform
+1) find the test to perform
 
-$\left\{
-    \begin{array}{ll}
+$$\begin{cases}
         \mathcal{H}_0: \theta=a \\
-        \mathcal{H}_1: \theta>a \\
-    \end{array}
-\right.$
+        \mathcal{H}_1: \theta>a
+\end{cases}$$
 
-2\) find the right estimator to use
+2) find the right estimator to use
 
 Since we are testing the mean, we choose the empirical mean as
 **estimator** $\widehat{\theta}=\frac{1}{n}\sum{X_i}$
 
-3\) deduce the reject region
+3) deduce the reject region
 
-We fix $k$ for a rejection level $\alpha$. The rejection region is:
-
-$Z=\{\widehat{\theta} \ge k\}$
+We fix $k$ for a rejection level $\alpha$. The rejection region is $$Z= \{\widehat{\theta} \ge k\}$$
 
 We look for $k$ defined as such:
 
@@ -61,38 +55,38 @@ unverified, we reject the hypothesis. However, we have a risk of
 $\alpha$ that our hypothesis was correct and that we ended up in the
 rejection region by mistake.*
 
-4\) compute the test statistic
+4) compute the test statistic
 
 We center and reduce the estimator in order to get the Gaussian law and
 thus end up with known quantiles:
 
-$\mathbb{P}_{\theta = a}(T \ge \frac{\sqrt{n} (k-a)}{\sqrt{\sigma^2}})=\alpha$
+$$\mathbb{P}_{\theta = a}(T \ge \frac{\sqrt{n} (k-a)}{\sqrt{\sigma^2}})=\alpha$$
 with $T \sim_{n \to \infty} \mathcal{N}(0,1)$
 
-$T$ is the test statistic ([a test statistic is a random variable for
-which we know the law under $\mathcal{H}_0$]{style="color: red"})
+$T$ is the test statistic (**a test statistic is a random variable for
+which we know the law under $\mathcal{H}_0$**)
 
-5\) retrieve quantiles of known distributions
+5) retrieve quantiles of known distributions
 
 Finally, $\frac{\sqrt{n} (k-a)}{\sqrt{\sigma^2}}=q_\alpha$ =\> we can
 find $k$ telling us when rejecting $\mathcal{H}_0$
 
-[Why not looking at the average directly?]{style="color: gray"}
+*Why not looking at the average directly?*
 
-=\> the average can be influenced by the outliers and thus doesn't take
+=> the average can be influenced by the outliers and thus doesn't take
 into consideration extreme events.
 
-[How about the median?]{style="color: gray"}
+*How about the median?*
 
-=\> the median doesn't take into account the distribution / tendency of
+=> the median doesn't take into account the distribution / tendency of
 the values.
 
 $\alpha$ is also called the p-value. The lower the p-value is, the less
 error we make in rejecting our hypothesis so the more significant the
 rejection is.
 
-[p-value is the lowest error probability we want to make when rejecting
-our hypothesis.]{style="color: red"}
+**p-value is the lowest error probability we want to make when rejecting
+our hypothesis.**
 
 When performing OLS, our hypothesis is $\theta_{x1}=0$ so we don't
 reject it if the pvalue column is higher than our threshold. In the
@@ -107,12 +101,10 @@ Say we want to test whether a coefficient is zero:
 
 1\) find the test to perform
 
-$\left\{
-    \begin{array}{ll}
-        \mathcal{H}_0: \theta_j=0 \\
-        \mathcal{H}_1: \theta_j \neq 0 \\
-    \end{array}
-\right.$
+$$\begin{cases}
+        \mathcal{H}_0: \theta_j=a \\
+        \mathcal{H}_1: \theta_j>a
+\end{cases}$$
 
 2\) find the right estimator to use
 
@@ -148,29 +140,23 @@ $\frac{k_1}{\Sigma \epsilon ^2 \sqrt{(X^TX)^{-1}}} = t_{\frac{\alpha}{2}}$
 
 Example 3 (forward selection):
 
-Concept:
+Concept: regress all variables one by one on the most significant variable's
+residual, remove the most significant variable after each full round.
 
-Regress all variables one by one on the most significant variable's
-residual, remove the most significant variable after each full round
+<figure>
+    <img src="/assets/img/forward-selection-algo.png">
+</figure>
 
-$sel \_ variables \leftarrow \emptyset$
-$resid \_mem \leftarrow \emptyset$ $T \_stats \leftarrow \emptyset$
-$Y = X_j\theta$ $resid \_mem \leftarrow resid \_mem + \{res\}$ // adding
-residuals from previous regression
-$T \_ stats \leftarrow T \_stats + \{T_j\}$ // $T_j$ is computed as seen
-in example 2 $k \leftarrow argmax(T \_ stats)$ $Y = resid \_ mem (k)$
-$rem \_ variable \leftarrow rem \_ variable - {k}$
-$sel \_ variables \leftarrow sel \_ variables + \{k\}$
+<figure>
+    <img src="/assets/img/forward_sel_pval.png">
+</figure>
 
-![image](/assets/img/forward_sel_pval.png){: height="20%" width="20%"}
-
-(x-axis is the order in which we selected variables; see notebook
-*ACP\_ForwardSelection\_Ridge\_Lasso.ipynb*)
+(x-axis is the order in which we selected variables)
 
 We can then select only the most significant variables based on p-values
-on variables from list $sel \_ variables$
+on variables from list $$sel\_variables$$
 
-*Note*: since $pval = 2*(1-cdf(T)) = 2*\frac{1-(1-\alpha)}{2}$, choosing
+*Note*: since $$pval = 2*(1-cdf(T)) = 2*\frac{1-(1-\alpha)}{2}$$, choosing
 the biggest T-stat is equivalent to choose the smallest p-value
 
 Example 4 (F-test):
@@ -183,12 +169,10 @@ significativity.
 Let's say we have 4 variables and we want to check the significativity
 of 2 of them.
 
-$\left\{
-    \begin{array}{ll}
+$$\begin{cases}
         \mathcal{H}_0: \theta_1 = \theta_2 = 0\\
-        \mathcal{H}_1: \theta_1, \theta_2 \neq 0 \\
-    \end{array}
-\right.$
+        \mathcal{H}_1: \theta_1, \theta_2 \neq 0
+\end{cases}$$
 
 $SSR = sum~squared~residuals = \Sigma (\widehat{y_i} - y_i)^2$
 
@@ -200,29 +184,29 @@ C: constraint model
 
 Method:
 
-\- OLS on not constraint model =\> computation of $SSR_{NC}$
+- OLS on not constraint model => computation of $SSR_{NC}$
 
-\- OLS on constraint model =\> computation of $SSR_{C}$
+- OLS on constraint model => computation of $SSR_{C}$
 
-\- Computation of the Fisher stat =\> computation of p-value (using
-survival function as above)
+- Computation of the Fisher stat => computation of p-value (using complementary cdf as above)
 
+```
+# Non constraint model
+X0=np.column_stack((educ, exper, tenure, const))
+model=sm.OLS(y,X0)
+results = model.fit()
+u=results.resid
+SSR0=u.T@u
 
-    # Non constraint model
-    X0=np.column_stack((educ, exper, tenure, const))
-    model=sm.OLS(y,X0)
-    results = model.fit()
-    u=results.resid
-    SSR0=u.T@u
+# Constraint model
+X=np.column_stack((const, educ, tenure))
+model=sm.OLS(y,X)
+results = model.fit()
+u=results.resid
+SSR1=u.T@u
 
-    # Constraint model
-    X=np.column_stack((const, educ, tenure))
-    model=sm.OLS(y,X)
-    results = model.fit()
-    u=results.resid
-    SSR1=u.T@u
-
-    # Computation of Fisher stat
-    n=np.shape(X0)[0]
-    F=((SSR1-SSR0)/1)/(SSR0/(n-4))
-    f.sf(F,1,n-4) # p-value
+# Computation of Fisher stat
+n=np.shape(X0)[0]
+F=((SSR1-SSR0)/1)/(SSR0/(n-4))
+f.sf(F,1,n-4) # p-value
+```
