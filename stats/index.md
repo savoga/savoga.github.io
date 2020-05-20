@@ -20,6 +20,9 @@ title: Probabilities & Statistics
 </u1>
 {% endfor %}
 
+<br>
+<br>
+
 <i>Sources:</i>
 <br>
 - <a href="http://www.editionstechnip.com/fr/catalogue-detail/149/probabilites-analyse-des-donnees-et-statistique.html">

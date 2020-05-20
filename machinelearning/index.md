@@ -20,6 +20,9 @@ title: Machine Learning
 </u1>
 {% endfor %}
 
+<br>
+<br>
+
 <i>Sources</i>:
 <br>
 - <a href="https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf">
