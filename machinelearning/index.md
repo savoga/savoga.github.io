@@ -25,11 +25,11 @@ title: Notes on machine learning
 
 <i>Sources</i>:
 <br>
-- <a href="https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf">
+- <a class="cleanLinkSource" href="https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf">
     Understanding Machine Learning: From Theory to Algorithms</a>, Shai Shalev-Shwartz and Shai Ben-David
 <br>
 - Télécom Paris courses
 <br>
-- <a href="https://www.coursera.org/specializations/deep-learning">Deep learning classes</a>, Andrew Ng
+- <a class="cleanLinkSource" href="https://www.coursera.org/specializations/deep-learning">Deep learning classes</a>, Andrew Ng
 <br>
 - Wikipedia

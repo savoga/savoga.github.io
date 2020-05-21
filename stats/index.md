@@ -25,7 +25,7 @@ title: Notes on probability & statistics
 
 <i>Sources:</i>
 <br>
-- <a href="http://www.editionstechnip.com/fr/catalogue-detail/149/probabilites-analyse-des-donnees-et-statistique.html">
+- <a class="cleanLinkSource" href="http://www.editionstechnip.com/fr/catalogue-detail/149/probabilites-analyse-des-donnees-et-statistique.html">
     Probabilités, analyse des données et statistique</a>, Gilbert Saporta
 <br>
 - Télécom Paris courses
