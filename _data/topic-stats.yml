@@ -10,6 +10,6 @@
 
 - name: Parametric tests
 
-- name: Mahalanobis distance
+- name: Distance metrics
 
 - name: ROC curve
