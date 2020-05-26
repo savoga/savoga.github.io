@@ -11,5 +11,6 @@
 - name: Parametric tests
 
 - name: Distance metrics
+- name: Principal component analysis
 
 - name: ROC curve
