@@ -6,8 +6,7 @@ category: Supervised learning
 
 **Linear discriminant analysis**
 
-We focus on the binary case, that is when $Y=+1$ or $Y=-1$, that is to
-sets of variables.
+We focus on the binary case, that is when $Y=+1$ or $Y=-1$.
 
 These two conditional laws need to be gaussians with same covariance:
 
