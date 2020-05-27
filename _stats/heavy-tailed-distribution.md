@@ -13,5 +13,5 @@ misleading as many outliers have high values. Below are p.d.f.
 
 ![image](/assets/img/heavy-light-tailed.png){: height="20%" width="50%"}
 
-An real-life example of heavy-tailed distribution is the income in the
+A real-life example of heavy-tailed distribution is the income in the
 US.
