@@ -54,7 +54,12 @@ In the below figure, maximizing the inertia leads to choosing the projection on 
 
 Let $P$ a projector. $V = Cov(X) = X^TDX$ (with $D$ the weight matrix). The covariance matrix of the projected points is:
 
-$$V_P = (PX)^TD(PX) = (XP^T)^TD(XP^T) = PX^TVXP^T = PVP^T$$
+$$ \begin{align*}
+V_P &= (PX)^TD(PX) \\
+&= (XP^T)^TD(XP^T) \\
+&= PX^TVXP^T \\
+&= PVP^T
+\end{align*} $$
 
 *Note*: a projector $P$ is such that $P^2=P$ and $PM = MP^T$
 
