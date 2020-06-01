@@ -1,6 +1,7 @@
 - name: Bayes classifier
 - name: Biais-complexity Trade-off
 - name: Gradient descent
+- name: Overfitting & regularization
 
 - name: Intro supervised learning
 - name: Perceptron
