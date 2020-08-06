@@ -41,7 +41,7 @@ In this part we show that using regularization leads to a stable algorithm.
 
 Let $A$ be a regularized algorithm:
 
-$$A(S) = \underset{\omega}{\operatorname{argmin}} (L_S(\omega) + \lambda \|\| \omega \|\|^2)$$
+$$A(S) = \underset{\omega}{\operatorname{argmin}} (L_S(\omega) + \lambda \| \omega \|^2)$$
 
 $f_S : \omega \mapsto L_S(\omega) + \lambda \|\| \omega \|\|^2$
 
