@@ -4,8 +4,6 @@ name: Distribution functions
 category: Tools
 ---
 
-**Mass and density functions**
-
 <ins>Mass function</ins>
 
 The probability mass function (p.m.f.) is the histogram of the
