@@ -9,6 +9,7 @@
 - name: Time series
 
 - name: Parametric tests
+- name: Non parametric tests
 
 - name: Distance metrics
 - name: Principal component analysis
