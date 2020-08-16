@@ -4,7 +4,7 @@ name: Parametric tests
 category: Inferential statistics
 ---
 
-**Parametric tests**
+Tests are *parametric* if we need to know part or all parameters of the sample law (e.g. $\mu$, $\sigma$) to perform the test.
 
 Procedure:
 
@@ -18,7 +18,7 @@ Procedure:
 
 5) retrieve quantiles of known distributions
 
-Example 1:
+Example 1 (**Z-test**):
 
 $X_1,...,X_n~(iid)\sim \mathbb{P_\theta}$
 
@@ -95,7 +95,7 @@ are significant.
 
 ![image](/assets/img/OLS_pvalue.png){: height="20%" width="20%"}
 
-Example 2: when the variance is not known.
+Example 2 (**T-test**): when the variance is not known.
 
 Say we want to test whether a coefficient is zero:
 
@@ -138,7 +138,7 @@ Thus,
 $\frac{k_1}{\Sigma \epsilon ^2 \sqrt{(X^TX)^{-1}}} = t_{\frac{\alpha}{2}}$
 (same for $k_2$)
 
-Example 3 (forward selection):
+Example 3 (**T-test** with forward selection):
 
 Concept: regress all variables one by one on the most significant variable's
 residual, remove the most significant variable after each full round.
@@ -159,7 +159,7 @@ on variables from list $$sel\_variables$$
 *Note*: since $$pval = 2*(1-cdf(T)) = 2*\frac{1-(1-\alpha)}{2}$$, choosing
 the biggest T-stat is equivalent to choose the smallest p-value
 
-Example 4 (F-test):
+Example 4 (**F-test**):
 
 When several variables are correlated (often the case in practice), the
 student test is not efficient enough since it does not take the
