@@ -10,6 +10,7 @@
 - name: SVM
 - name: AdaBoost
 - name: Neural network
+- name: LIME
 
 - name: Intro unsupervised learning
 - name: Local Outlier Factor
