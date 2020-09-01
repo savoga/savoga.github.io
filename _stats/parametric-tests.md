@@ -4,7 +4,7 @@ name: Parametric tests
 category: Inferential statistics
 ---
 
-Tests are *parametric* if we need to know part or all parameters of the sample law (e.g. $\mu$, $\sigma$) to perform the test.
+A test is *parametric* if its goal is to test parameters of a known/unknown distribution.
 
 Procedure:
 
