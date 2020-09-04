@@ -14,5 +14,5 @@
 - name: Distance metrics
 - name: Principal component analysis
 
-- name: ROC curve
+- name: Performance metrics for classification
 - name: Linear regression
