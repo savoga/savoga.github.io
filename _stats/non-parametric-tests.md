@@ -86,7 +86,7 @@ Example 3 (**Fisher exact test**):
 
 - Test whether proportions are representative
 
-$\mathcal{H}_0: \text{proportions are representive}$
+$\mathcal{H}_0: \text{proportions are representative}$
 
 This test is to be used for the analysis of contingency tables.
 
