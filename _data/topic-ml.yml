@@ -15,6 +15,7 @@
 - name: Intro unsupervised learning
 - name: Local Outlier Factor
 - name: K-means
+- name: DBSCAN
 - name: Expectation-maximization (GMM)
 - name: VAE
 
