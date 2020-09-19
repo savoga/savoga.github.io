@@ -22,4 +22,9 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}{{ "/feed.xml" }}" />
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/main.css">
+    <!-- Google Analytics -->
+    {% if site.google_analytics and jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %}
+
 </head>
