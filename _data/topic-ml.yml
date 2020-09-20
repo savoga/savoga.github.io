@@ -13,6 +13,7 @@
 - name: LIME
 
 - name: Intro unsupervised learning
+- name: SMOTE
 - name: Local Outlier Factor
 - name: K-means
 - name: DBSCAN
