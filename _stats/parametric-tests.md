@@ -18,7 +18,7 @@ Procedure:
 
 5) retrieve quantiles of known distributions
 
-Example 1 (**Z-test**):
+Example 1 (**Gaussian-test**):
 
 $X_1,...,X_n~(iid)\sim \mathbb{P_\theta}$
 
@@ -27,8 +27,8 @@ We want to analyze the mean. $m=a$?
 1) find the test to perform
 
 $$\begin{cases}
-        \mathcal{H}_0: \theta=a \\
-        \mathcal{H}_1: \theta>a
+        \mathcal{H}_0: m=a \\
+        \mathcal{H}_1: m>a
 \end{cases}$$
 
 2) find the right estimator to use
