@@ -7,7 +7,7 @@ category: Tools
 **Likelihood method**
 
 This method consists on finding the parameter that maximizes the
-likelihood of an event. It is usually done when we know the type of law
+likelihood of an event. The event here is to observe some data. It is usually done when we know the type of law
 of a random variable (uniform, gaussian etc.) and we are looking for the
 parameter that maximizes the likelihood ($\approx$ probability) that an
 event occurs.
@@ -28,7 +28,7 @@ fixed model parameters.
 given that we observe an event.
 
 Intuitively, we want to find the $\theta$ that maximizes a certain
-event, that is, obtaining some data $X$ (which is why we have
+event, that is, **obtaining some data $X$** (which is why we have
 $X | \theta$).
 
 We often use the log in order to get rid of power coefficients appearing
