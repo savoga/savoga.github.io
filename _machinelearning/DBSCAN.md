@@ -38,6 +38,8 @@ Its main advantages over k-means is that it can find non convex clusters as well
 
 <ins>Parameter estimation</ins>
 
+High $MinPts$ or low $\epsilon$ means higher density is necessary to form a cluster.
+
 The original DBSCAN paper proposes a method to define $\epsilon$. The method consists in plotting the k-th distance to each point in decreasing order. The largest values (left of the graph) are associated with outliers; smaller values are associated with cluster points. The inflection point is the **cluster point** with the highest k-distance; it corresponds to the epsilon we are looking for.
 
 <figure>
