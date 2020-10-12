@@ -101,3 +101,21 @@ $$p = \frac{C_a^{a+b} C_c^{c+d}}{C_{a+c}^n}$$
 The test is said *exact* since there is no asymptotic behavior in the formula.
 
 $p < \alpha$ means that, based on total numbers, this specific combination is unlikely to happen.
+
+Example 4 (**Chi-2 test**):
+
+- Test whether several samples follow the same law = samples are distributed in the same proportions among the different categorical variables.
+
+<figure>
+    <img src="/assets/img/chi-2-table.png">
+</figure>
+
+*Note*: the table is read as such: "In sample 1, $n_{11}$ individuals have feature 1, $n_{12}$ individuals have feature 2, ...". Thus, the columns are derived from categorical variables in building a contingency table (displays the frequencies of variables).
+
+$\mathcal{H}_0$: All samples have the same probabilities to have feature 1, 2, 3, ... Those probabilities are  $p_1, p_2, ..., p_r$.
+
+The test statistic is: $X^2 = \Sigma_{i=1}^k \Sigma_{j=1}^r \frac{(n_{ij} - n_{i.}p_j)^2}{n_{i.}p_j}$ where $n_{i.}$ is the sum of row $i$.
+
+The test statistic is also often written as such: $X^2 = \Sigma_{i=1}^k \Sigma_{j=1}^r \frac{(O_{ij} - E_{ij})^2}{E_{ij}}$ where $O_{ij}$ are the observed numbers in the above table and $E_{ij}$ are the expected numbers (numbers we want to have).
+
+Pearson showed that $X^2 \sim \mathcal{X}^2_{kr-k}$. We can thus use the quantile table to deduce whether we reject $\mathcal{H}_0$.
