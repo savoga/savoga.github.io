@@ -11,6 +11,7 @@
 
 - name: Parametric tests
 - name: Non parametric tests
+- name: Fairness metrics
 
 - name: Distance metrics
 - name: Principal component analysis
