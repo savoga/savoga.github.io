@@ -16,5 +16,6 @@
 - name: Distance metrics
 - name: Principal component analysis
 
-- name: Performance metrics for classification
 - name: Linear regression
+- name: Performance metrics for classification
+- name: Performance metrics using likelihood
