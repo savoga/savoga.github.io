@@ -8,6 +8,7 @@
 - name: Logistic regression
 - name: Linear discriminant analysis
 - name: SVM
+- name: Trees
 - name: AdaBoost
 - name: Neural network
 - name: LIME
