@@ -4,25 +4,18 @@ name: Biais-complexity Trade-off
 category: Theory
 ---
 
-**Bias-Complexity trade-off**
+$\mathcal{H}$ = hypothesis class = all the classifiers that are considered
 
-$ERM$ = Empiric Risk Minimization algorithm
+The size of $\mathcal{H}$ can be seen as a measure of complexity.
 
-$\mathcal{H}$ = hypothesis class = all the classifiers that are
-considered
-
-We can decompose the error of an $ERM_\mathcal{H}$:
+We can decompose the error of an $ERM_\mathcal{H}$ (Empiric Risk Minimization algorithm):
 
 $$L_{\mathcal{D}}(h_s) = \epsilon_{app} + \epsilon_{est}$$
 
-\- *Approximation error*:
-$\epsilon_{app} = min_{h \in \mathcal{H}} L_{\mathcal{D}}(h)$. This is
-the error done by the best predictor among those considered.
+- *Approximation error*: $\epsilon_{app} = min_{h \in \mathcal{H}} L_{\mathcal{D}}(h)$. This is the error done by the best predictor among those considered. It is the *bias* we have in choosing a specific class $\mathcal{H}$.
 
-\- *Estimation error*:
-$\epsilon_{est} = L_{\mathcal{D}}(h) - \epsilon_{app}$. This is the
-error difference from a used predictor and the best one.
+- *Estimation error*: $\epsilon_{est} = L_{\mathcal{D}}(h) - \epsilon_{app}$. This is the error difference from a used predictor and the best one. The larger $\mathcal{H}$ (complexity), the more predictors we consider and thus the larger $\epsilon_{est}$ would be.
 
-$\epsilon_{app}$ low =\> $\epsilon_{est}$ high =\> overfitting
+High complexity <=> $\epsilon_{app}$ (bias) low <=> $\epsilon_{est}$ high <=> overfitting
 
-$\epsilon_{est}$ low =\> underfitting
+Low complexity <=> $\epsilon_{app}$ (bias) high <=> $\epsilon_{est}$ low <=> underfitting
