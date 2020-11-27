@@ -9,7 +9,7 @@ category: Supervised learning
 Boosting is an algorithmic paradigm addressing two major issues in
 machine learning:
 
-- It optimizes the biais-complexity trade-off. The learning starts with a basic class (large
+- It optimizes the <a class="cleanLinkSource" href="https://savoga.github.io/machinelearning/bias-complexity-trade-off">biais-complexity trade-off</a>. The learning starts with a basic class (large
 approximation error) and as it progresses the hypothesis class becomes
 more complex.
 

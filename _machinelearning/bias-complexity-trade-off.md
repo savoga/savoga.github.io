@@ -20,4 +20,4 @@ High complexity <=> $\epsilon_{app}$ (bias) low <=> $\epsilon_{est}$ high <=> ov
 
 Low complexity <=> $\epsilon_{app}$ (bias) high <=> $\epsilon_{est}$ low <=> underfitting
 
-We also call this trade-off the **bias-variance trade-off** since a high complexity leads to a high variance. For more details on the variance, see last section of the <a class="cleanLinkSource" href="https://savoga.github.io/machinelearning/trees/">tree</a> chapter.
+We also call this trade-off the **bias-variance trade-off** since a high complexity leads to a high variance. For more details on the variance, see last section of the <a class="cleanLinkSource" href="https://savoga.github.io/machinelearning/trees/">Trees</a> chapter.
