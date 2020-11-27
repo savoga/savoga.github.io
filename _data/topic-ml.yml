@@ -9,6 +9,7 @@
 - name: Linear discriminant analysis
 - name: SVM
 - name: Trees
+- name: Ensemble methods
 - name: AdaBoost
 - name: Neural network
 - name: LIME
