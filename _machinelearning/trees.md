@@ -76,7 +76,7 @@ The main function *build\_tree()* is called recursively.
     <img src="/assets/img/trees_algo.png">
 </figure>
 
-A full implementation (largely inspired by this <a class="cleanLinkSource" href="https://github.com/random-forests/tutorials/blob/master/decision_tree.ipynb">Google tutorial</a>) can be found on my <a class="cleanLinkSource" href="https://github.com/random-forests/tutorials/blob/master/decision_tree.ipynb">Github account</a>.
+A full implementation (largely inspired by this <a class="cleanLinkSource" href="https://github.com/random-forests/tutorials/blob/master/decision_tree.ipynb">Google tutorial</a>) can be found on my <a class="cleanLinkSource" href="https://github.com/savoga/various_projects/blob/master/trees_from_scratch.py">Github account</a>.
 
 <ins>Important notes</ins>
 
