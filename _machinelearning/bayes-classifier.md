@@ -30,7 +30,7 @@ $$\begin{cases}
       0 & \text{otherwise}
     \end{cases}$$
 
-Or, if $\mathcal{Y}$ is $$\{-1,1\}$$, we write the classifier as such: $$g(x) = 2 \mathbb{1} \{ \eta(x)>1/2 \}-1$$.
+Or, if $\mathcal{Y}$ is $$\{-1,1\}$$, we write the classifier as such: $$g(x) = 2 \unicode{x1D7D9} \{ \eta(x)>1/2 \}-1$$.
 
 <ins>Theorem</ins>:
 
