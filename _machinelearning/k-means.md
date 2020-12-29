@@ -4,8 +4,6 @@ name: K-means
 category: Unsupervised learning
 ---
 
-**K-means**
-
 Objective: group data into $k$ clusters so that samples in the same
 cluster are close to each other w.r.t. the Euclidean distance.
 
@@ -40,7 +38,7 @@ samples
 proportional to the square distance to the closest current cluster
 center
 
-```
+```python
 centers = []
 centers.append(X[np.random.randint(X.shape[0])]) # inital center = one random sample
 distance = np.full(X.shape[0], np.inf) # a vector (n,1) with only infinity terms
