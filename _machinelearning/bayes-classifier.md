@@ -4,10 +4,6 @@ name: Bayes classifier
 category: Theory
 ---
 
-$\textbf{Bayes classifier}$
-
-<br>
-
 $g$ is the *classifier*.
 
 $$g: \mathcal{X} \to \mathcal{Y}$$
