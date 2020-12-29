@@ -6,6 +6,7 @@
 - name: Intro supervised learning
 - name: Perceptron
 - name: Logistic regression
+- name: KNN
 - name: Linear discriminant analysis
 - name: SVM
 - name: Trees
