@@ -4,8 +4,6 @@ name: Gradient descent
 category: Theory
 ---
 
-**Gradient descent**
-
 $\ell$ the loss function to minimize:
 
 $\omega_{t+1}=\omega_t - \alpha \nabla \ell$
