@@ -12,6 +12,7 @@
 - name: Trees
 - name: Ensemble methods
 - name: AdaBoost
+- name: Gradient boosting
 - name: Neural network
 - name: LIME
 
