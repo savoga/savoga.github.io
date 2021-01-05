@@ -51,7 +51,7 @@ $$r_{im} = - \frac{\partial \mathcal{L}(y_i, F(x_i))}{\partial F(x_i)} \text{ fo
 
 The gradient of the loss function is $\frac{\partial \mathcal{L}}{\partial \hat y} = -(y - \hat y)$
 
-Residuals as seen in linear regression are typically written as such: $res = y - \hat y$. Thus, gradient boosting uses negative residuals, also called \textbf{pseudo-residuals}. 
+Residuals as seen in linear regression are typically written as such: $res = y - \hat y$. Thus, gradient boosting uses negative residuals, also called *pseudo-residuals*.
 
 Note 1: pseudo-residuals are just the derivatives of the loss function; that's why we call it **gradient** boosting.
 
