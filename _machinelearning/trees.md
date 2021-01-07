@@ -16,18 +16,26 @@ The objective is to partitionate $\mathcal{X}$ the best. At the start, $\mathcal
 
 <ins>Impurity measure: Gini index</ins>
 
-To determine a good split element, we measure the impurity. One way to measure impurity is the Gini index. The Gini index $H$ (hyperplan) represents the disparity in a set $S$:
+To determine a good split element, we measure the impurity. One way to measure impurity is the Gini index. 
+
+**The Gini index is the probability of incorrectly classifying a random point**. Thus, a good separator has a **low** Gini index.
+
+Mathematically, the Gini index $H$ (hyperplan) represents the disparity in a set $S$:
 
 $$H(S)=\Sigma_{\ell=1}^C p_{\ell}(S)(1-p_{\ell}(S))$$
 
 Or (easier to code): 
 $$H(S)=\Sigma_{\ell=1}^C p_{\ell}(S)-\Sigma_{\ell=1}^C p_{\ell}(S)*p_{\ell}(S)=1-\Sigma_{\ell=1}^C p_{\ell}(S)^2$$
 
-Where $p_{c}(S)=\frac{1}{n}\Sigma_{i=1}^n 1\{y_i=c\}$ is the frequency of label $c$ in a set $S$.
+Where $p_{c}(S)=\frac{1}{n}\Sigma_{i=1}^n \unicode{x1D7D9}\\{y_i=c\\}$ is the frequency of label $c$ in a set $S$.
 
 $C$ is the set of labels.
 
-*Note*: the lower the Gini index, the more pure is the set. Intuitively, to have more more purity, we will favor a high count of a single element in one class versus low counts of several elements in several classes. This is because $p_{\ell}(S)$ is at power $2$. E.g. $3^2 + 4^2 < 7^2 =>$ we prefer to have the 7 elements in the same class (more pure).
+*Note*: if all elements belong to the same class, then it is called pure. Intuitively, to have more purity, we will favor a high count of elements in a small number of classes versus a low count of elements in a large number of classes. This is because $p_{\ell}(S)$ is at power $2$. E.g. $3^2 + 4^2 < 7^2 =>$ we prefer to have the 7 elements in the same class (more pure).
+
+<figure>
+    <img src="/assets/img/tree_gini.png">
+</figure>
 
 <ins>Loss function</ins>
 
