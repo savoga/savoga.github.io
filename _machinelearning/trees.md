@@ -44,7 +44,7 @@ To assess the split quality, we use *information gain* (= loss function) that co
 $$\underset{j \in \{1,...,p\}, \\
 \tau \in \mathbb{R}}{\operatorname{argmin}} \frac{n_r}{n}H(R(S,j,\tau))+\frac{n_l}{n}H(L(S,j,\tau))$$
 
-$(j, \tau)$ are the possible feature values. 
+$(j, \tau)$ are the possible feature values. $H()$ is the Gini index function as seen previously.
 
 $R$ and $L$ are the Right and Left branches. We want a **low** disparity inside each of them.
 
