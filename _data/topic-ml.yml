@@ -15,6 +15,7 @@
 - name: Gradient boosting
 - name: Neural network
 - name: LIME
+- name: SHAP
 
 - name: Intro unsupervised learning
 - name: SMOTE
