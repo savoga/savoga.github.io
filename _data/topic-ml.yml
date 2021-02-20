@@ -21,6 +21,7 @@
 - name: SMOTE
 - name: Local Outlier Factor
 - name: K-means
+- name: Hierarchical clustering
 - name: DBSCAN
 - name: Expectation-maximization (GMM)
 - name: VAE
