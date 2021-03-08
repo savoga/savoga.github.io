@@ -4,37 +4,57 @@ name: Performance metrics for classification
 category: Predictive models
 ---
 
-1) ROC = Receiver Operating Curve
+1) Accuracy
+
+The accuracy is the percentage of correct predictions:
+
+$$accuracy = \frac{1}{n} \sum_{i=1}^{n} \unicode{x1D7D9} \{\hat y_i = y_i \}$$
+
+where $\hat y$ is the prediction and $y$ the true value.
+
+*Note*: for imbalanced data, the accuracy can be very misleading because a classifier can achieve a high score just by predicting the majority class with probability 1.
+
+In case of binary classification, the accuracy can be written as such: $accuracy = \frac{TP + TN}{TP + TN + FP + FN}$
+
+2) True positive rate
+
+The TPR measures the proportions of positives that are correctly identified.
+
+$$TPR = \frac{TP}{P} = \frac{TP}{TP + FN}$$
+
+*Note*: this metric is typically used for medical tasks as it is crucial to minimize the count of false-negatives.
+
+3) False positive rate
+
+The FPR measures the proportions of negatives that are correctly identified.
+
+$$FPR = \frac{FP}{N} = \frac{FP}{FP + TN}$$
+
+4) ROC (Receiver Operating Characteristic) curve
+
+The ROC curve combines the $TPR$ and $FPR$.
 
 <ins>Use of the ROC</ins>
 
-One model:
+If one model is used:
 
-We use the ROC to evaluate the performance of one classifying model that we can obtain when varying a threshold.
+We use the ROC curve to evaluate the performance of one classifying model that we can obtain when varying a threshold.
 
-Several models:
+If several models are used:
 
-We use the ROC to compare several classifying models in evaluating the area under the curve (AUC) for a range of threshold.
+We use the ROC curve to compare several classifiers in evaluating the area under the curve (AUC) for a range of thresholds.
 
 <ins>Intuition</ins>
 
-After running the prediction of a specific model, we draw the confusion matrix (actual vs predited) with a certain threshold.
-
-![image](/assets/img/confusionmatrice.png){: height="20%" width="20%"}
+After running the prediction of a specific model, we draw the confusion matrix (see below) with a certain threshold.
 
 We then modify the threshold and draw another confusion matrix.
 
-The ROC summarizes all of the confusion matrices that each threshold produced.
+The ROC curve summarizes all of the confusion matrices that each threshold produced.
 
 <figure>
     <img src="/assets/img/ROC.png">
 </figure>
-
-The curve is drawn using relationship ratios between predictions and actual results:
-
-X-axis: $$FPR = \frac{FP}{N} = \frac{FP}{FP + TN}$$
-
-Y-axis: $$TPR = \frac{TP}{P} = \frac{TP}{TP + FN}$$
 
 <ins>Implementation</ins>
 
@@ -52,26 +72,38 @@ Y-axis: $$TPR = \frac{TP}{P} = \frac{TP}{TP + FN}$$
 
 5. Plot (FPR, TPR)
 
-See <a class="cleanLinkSource" href="https://docs.eyesopen.com/toolkits/cookbook/python/plotting/roc.html">this link</a> for an implementation example
+See <a class="cleanLinkSource" href="https://docs.eyesopen.com/toolkits/cookbook/python/plotting/roc.html">this link</a> for an implementation example.
 
-2) PR curve = Precision-Recall curve
+5) Precision
+
+$$precision = \frac{TP}{TP + FP}$$
+
+*Note*: this metric should be used when false-negative is not too much a concern (e.g. YouTube recommendations). It can also be used when the data are imbalanced (see details below).
+
+6) PR (Precision Recall) curve
+
+The PR curve combines $TPR$ (recall) and $precision$.
 
 <figure>
     <img src="/assets/img/PR_curve.png">
 </figure>
 
-The PR curve uses the following ratios:
+The PR curve is better adapted than the ROC curve in the case of imbalanced data:
 
-X-axis:
-
-$$\text{Recall} = TPR = \frac{TP}{P} = \frac{TP}{TP + FN}$$
-
-Y-axis:
-
-$$\text{Precision} = \frac{TP}{TP + FP}$$
-
-The PR curve is better adapted than the ROC in the case of imbalanced data:
-
-ROC uses $FPR = \frac{FP}{\color{red}{N}} $ --> $N$ can be either very large or very small if classes are imbalanced.
+ROC curve uses $FPR = \frac{FP}{\color{red}{N}} $ --> $N$ can be either very large or very small if classes are imbalanced.
 
 PR curve uses $\text{Precision} = \frac{TP}{\color{green}{TP + FP}}$ --> the precision considers only the positive values coming from the model.
+
+7) F1-score
+
+F1-score is a single metric that combines TPR (recall) and precision.
+
+$$f1 \text{-} score = 2\frac{precision*TPR}{precision+TPR}$$
+
+*Note*: it is widely used for imbalanced datasets since it involves the precision.
+
+**Metric summary**
+
+<figure>
+    <img src="/assets/img/confusion_matrix.png">
+</figure>
