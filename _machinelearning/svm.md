@@ -165,7 +165,7 @@ SVM\")
 
 Polynomial kernel: $K(x,x') = (x^Tx'+c)^d$
 
-Gaussian kernel: $K(x,x') = exp(-\gamma\|\|x-x'\|\|^2)$
+Radial Basic Function (RBF) kernel: $K(x,x') = exp(-\gamma\|\|x-x'\|\|^2)$
 
 The optimisation problem can be written with kernel:
 
