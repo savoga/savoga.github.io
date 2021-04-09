@@ -6,6 +6,8 @@ category: Inferential statistics
 
 A test is *parametric* if its goal is to test parameters of a known/unknown distribution.
 
+Note: we call *population* the total data from which a *sample* is extracted. A statistical test aims at finding information about the distribution the sample is extracted from.
+
 Procedure:
 
 1) find the test to perform
@@ -18,11 +20,18 @@ Procedure:
 
 5) retrieve quantiles of known distributions
 
-Example 1 (**Gaussian-test**):
+See the <a class="cleanLinkSource" href="https://github.com/savoga/various_projects/blob/master/statistical_testing.ipynb">associated notebook</a> for numerical examples.
+
+Example 1 (**Z-test**):
 
 $X_1,...,X_n~(iid)\sim \mathbb{P_\theta}$
-
-We want to analyze the mean. $m=a$?
+<p style="color:blue">We want to know the mean of an unknown distribution from which we have a sample.
+<br><br>
+Requirements/assumptions:
+<br>
+- we need the standard deviation of the population
+<br><br>
+Note: there is no assumption on the unknown distribution law (if the random variable is not Gaussian, we can still use the CLT to have the normality).</p>
 
 1) find the test to perform
 
