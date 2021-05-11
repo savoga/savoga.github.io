@@ -59,7 +59,7 @@ $$x_1,x_2, \omega_1,\omega_p,b \leftarrow z=\omega_1x_1 + \omega_2x_2 + b \lefta
 
 To find the new value of $\omega_1$ we look for its change ($d \omega_1$) that we can obtain thanks to the **Chain rule**. It consists of decomposing the derivative into successive ones:
 
-$\frac{d\mathcal{L}}{d\omega_1}="d\omega_1"=\frac{d\mathcal{L}}{da}\frac{da}{dz}\frac{dz}{d\omega_1}=...=(a-y)x_1=dzx_1$ (details on the derivatives can be found <a class="cleanLinkSource" href="https://www.youtube.com/watch?v=z_xiwjEdAC4">here</a>)
+$\frac{d\mathcal{L}}{d\omega_1}="d\omega_1"=\frac{d\mathcal{L}}{da}\frac{da}{dz}\frac{dz}{d\omega_1}=...=(a-y)x_1=dzx_1$ (details on the derivatives can be found <a class="cleanLinkSource" href="https://www.youtube.com/watch?v=z_xiwjEdAC4">here</a> and <a class="cleanLinkSource" href="https://www.youtube.com/watch?v=yXcQ4B-YSjQ">here</a>)
 
 *Note*: we can see that the updated weight depends on the previous prevision $a$. This is why it is necessary to recompute the predicted value at each iteration.
 
