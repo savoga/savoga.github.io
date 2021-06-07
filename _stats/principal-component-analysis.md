@@ -57,7 +57,7 @@ Let $P$ a projector. $V = Cov(X) = X^TDX$ (with $D$ the weight matrix). The cova
 $$ \begin{align*}
 V_P &= (PX)^TD(PX) \\
 &= (XP^T)^TD(XP^T) \\
-&= PX^TVXP^T \\
+&= PX^TDXP^T \\
 &= PVP^T
 \end{align*} $$
 
@@ -114,3 +114,44 @@ $$\max~Ip_M = \max~Tr(VMP) = \max~\lambda$$
 This final result leads to the theorem:
 
 **The lower dimensional space is given by the eigenvectors associated with the biggest eigenvalues.**
+
+Summary of the proof:
+
+Minimization of the distorsion => maximization of the inertia of the projected space => maximization of the covariance matrix's eigenvalues.
+
+<ins>Implementation</ins>
+
+```python
+
+import numpy as np
+
+def PCA(X , num_components):
+ 
+    # Standardize variables
+    X_std = (X - np.mean(X))/np.std(X)
+ 
+    # Compute covariance matrix
+    cov_mat = np.cov(X_std , rowvar = False)
+ 
+    # Find eigenvalues and eigenvectors (results of a matrix decomposition)
+    eigen_values, eigen_vectors = np.linalg.eigh(cov_mat)
+    
+    # Sort eigenvalues and eigenvectors
+    sorted_index = np.argsort(eigen_values)[::-1]
+    sorted_eigenvalue = eigen_values[sorted_index]
+    sorted_eigenvectors = eigen_vectors[:,sorted_index]
+    
+    # Keep eigenvectors associated with highest eigenvalues
+    eigenvector_subset = sorted_eigenvectors[:,0:num_components]
+    
+    # Compute the reduced space
+    X_reduced = np.dot(eigenvector_subset.transpose() , X_std.transpose() ).transpose()
+    # Note: X_reduced = eigenvector subset = projection of the initial dataset
+    
+    return X_reduced
+
+```
+
+*Note (1)*: standardizing is a good practice before PCA; if not done, variables with high variances will have too much importance. Useful details <a class="cleanLink" href="https://stats.stackexchange.com/questions/53/pca-on-correlation-or-covariance">here</a> and <a class="cleanLink" href="https://stats.stackexchange.com/questions/69157/why-do-we-need-to-normalize-data-before-principal-component-analysis-pca?noredirect=1&lq=1">here</a>.
+
+*Note (2)*: the eigenvectors represent the components (or directions) for the reduced space, whereas the eigenvalues represent the magnitudes for the directions.
